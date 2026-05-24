@@ -1,0 +1,14 @@
+E:\ServerProgramming\TCPClient\TCPClient\bin\Debug\net8.0\TCPClient.exe
+E:\ServerProgramming\TCPClient\TCPClient\bin\Debug\net8.0\TCPClient.deps.json
+E:\ServerProgramming\TCPClient\TCPClient\bin\Debug\net8.0\TCPClient.runtimeconfig.json
+E:\ServerProgramming\TCPClient\TCPClient\bin\Debug\net8.0\TCPClient.dll
+E:\ServerProgramming\TCPClient\TCPClient\bin\Debug\net8.0\TCPClient.pdb
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.GeneratedMSBuildEditorConfig.editorconfig
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.AssemblyInfoInputs.cache
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.AssemblyInfo.cs
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.csproj.CoreCompileInputs.cache
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.dll
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\refint\TCPClient.dll
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.pdb
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\TCPClient.genruntimeconfig.cache
+E:\ServerProgramming\TCPClient\TCPClient\obj\Debug\net8.0\ref\TCPClient.dll
