@@ -16,6 +16,8 @@ namespace Server
 
         public string PlayerName;
 
+        public Match CurrentMatch;
+
         public ClientConnection(TcpClient tcpClient, int playerId)
         {
             TcpClient = tcpClient;

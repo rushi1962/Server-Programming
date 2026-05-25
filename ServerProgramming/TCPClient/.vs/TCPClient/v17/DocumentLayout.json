@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\ServerProgramming\\TCPClient\\",
+  "WorkspaceRootPath": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B323481A-D1FE-40EA-B6EF-855CCB468460}|TCPClient\\TCPClient.csproj|e:\\serverprogramming\\tcpclient\\tcpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B323481A-D1FE-40EA-B6EF-855CCB468460}|TCPClient\\TCPClient.csproj|e:\\github\\server-programming\\serverprogramming\\tcpclient\\tcpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B323481A-D1FE-40EA-B6EF-855CCB468460}|TCPClient\\TCPClient.csproj|solutionrelative:tcpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B323481A-D1FE-40EA-B6EF-855CCB468460}|TCPClient\\TCPClient.csproj|e:\\serverprogramming\\tcpclient\\tcpclient\\packettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B323481A-D1FE-40EA-B6EF-855CCB468460}|TCPClient\\TCPClient.csproj|e:\\github\\server-programming\\serverprogramming\\tcpclient\\tcpclient\\packettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B323481A-D1FE-40EA-B6EF-855CCB468460}|TCPClient\\TCPClient.csproj|solutionrelative:tcpclient\\packettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PacketType.cs",
-              "DocumentMoniker": "E:\\ServerProgramming\\TCPClient\\TCPClient\\PacketType.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\PacketType.cs",
               "RelativeDocumentMoniker": "TCPClient\\PacketType.cs",
-              "ToolTip": "E:\\ServerProgramming\\TCPClient\\TCPClient\\PacketType.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\PacketType.cs",
               "RelativeToolTip": "TCPClient\\PacketType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\ServerProgramming\\TCPClient\\TCPClient\\Program.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\Program.cs",
               "RelativeDocumentMoniker": "TCPClient\\Program.cs",
-              "ToolTip": "E:\\ServerProgramming\\TCPClient\\TCPClient\\Program.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\Program.cs",
               "RelativeToolTip": "TCPClient\\Program.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAYwDQAAAAQAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA2wDQAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T12:25:41.084Z",
               "EditorCaption": ""

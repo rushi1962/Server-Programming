@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\ServerProgramming\\TcpServer\\",
+  "WorkspaceRootPath": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\serverprogramming\\tcpserver\\tcpserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\github\\server-programming\\serverprogramming\\tcpserver\\tcpserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|solutionrelative:tcpserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\serverprogramming\\tcpserver\\tcpserver\\packettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\github\\server-programming\\serverprogramming\\tcpserver\\tcpserver\\packettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|solutionrelative:tcpserver\\packettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\serverprogramming\\tcpserver\\tcpserver\\clientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\github\\server-programming\\serverprogramming\\tcpserver\\tcpserver\\clientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|solutionrelative:tcpserver\\clientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|e:\\github\\server-programming\\serverprogramming\\tcpserver\\tcpserver\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE0999E-14A0-40CB-A8F1-AB1E09F216B6}|TcpServer\\TcpServer.csproj|solutionrelative:tcpserver\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,17 +26,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Match.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Match.cs",
+              "RelativeDocumentMoniker": "TcpServer\\Match.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Match.cs",
+              "RelativeToolTip": "TcpServer\\Match.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T09:52:38.398Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ClientConnection.cs",
-              "DocumentMoniker": "E:\\ServerProgramming\\TcpServer\\TcpServer\\ClientConnection.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\ClientConnection.cs",
               "RelativeDocumentMoniker": "TcpServer\\ClientConnection.cs",
-              "ToolTip": "E:\\ServerProgramming\\TcpServer\\TcpServer\\ClientConnection.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\ClientConnection.cs",
               "RelativeToolTip": "TcpServer\\ClientConnection.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAmwCEAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T10:44:44.095Z",
               "EditorCaption": ""
@@ -41,9 +58,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PacketType.cs",
-              "DocumentMoniker": "E:\\ServerProgramming\\TcpServer\\TcpServer\\PacketType.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\PacketType.cs",
               "RelativeDocumentMoniker": "TcpServer\\PacketType.cs",
-              "ToolTip": "E:\\ServerProgramming\\TcpServer\\TcpServer\\PacketType.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\PacketType.cs",
               "RelativeToolTip": "TcpServer\\PacketType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -54,11 +71,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\ServerProgramming\\TcpServer\\TcpServer\\Program.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Program.cs",
               "RelativeDocumentMoniker": "TcpServer\\Program.cs",
-              "ToolTip": "E:\\ServerProgramming\\TcpServer\\TcpServer\\Program.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Program.cs",
               "RelativeToolTip": "TcpServer\\Program.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAA2wD8AAABOAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAkwFMAAABwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T11:58:07.833Z",
               "EditorCaption": ""

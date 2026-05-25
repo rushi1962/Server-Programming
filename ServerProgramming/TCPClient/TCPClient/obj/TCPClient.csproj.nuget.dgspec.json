@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj": {}
+    "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj": {}
   },
   "projects": {
-    "E:\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj": {
+    "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj",
+        "projectUniqueName": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj",
         "projectName": "TCPClient",
-        "projectPath": "E:\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj",
+        "projectPath": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\TCPClient.csproj",
         "packagesPath": "C:\\Users\\rushi\\.nuget\\packages\\",
-        "outputPath": "E:\\ServerProgramming\\TCPClient\\TCPClient\\obj\\",
+        "outputPath": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
