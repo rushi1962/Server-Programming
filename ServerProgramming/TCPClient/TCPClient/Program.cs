@@ -73,6 +73,10 @@ class Program
                     case PacketType.PlayerLeft:
                         Console.WriteLine($"SYSTEM: {message}");
                         break;
+
+                    case PacketType.TurnChanged:
+                        Console.WriteLine($"TURN: {message}");
+                        break;
                 }
             }
         }

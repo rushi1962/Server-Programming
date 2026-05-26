@@ -4,6 +4,7 @@
     {
         ChatMessage = 1,
         PlayerJoined = 2,
-        PlayerLeft = 3
+        PlayerLeft = 3,
+        TurnChanged = 4
     }
 }

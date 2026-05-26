@@ -160,6 +160,10 @@ class Program
         );
 
         BroadcastToMatch(match, PacketType.ChatMessage, $"Match {match.MatchId} started!");
+
+        ClientConnection currentPlayer = match.GetCurrentPlayer();
+
+        BroadcastToMatch(match, PacketType.TurnChanged, $"{currentPlayer.PlayerName}'s turn");
     }
 
     static void BroadcastToMatch(Match match, PacketType packetType, string message, ClientConnection sender = null)
