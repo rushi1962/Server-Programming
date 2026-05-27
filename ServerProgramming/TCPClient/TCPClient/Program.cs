@@ -23,20 +23,45 @@ class Program
 
         while (true)
         {
-            string message = Console.ReadLine();
+            string input = Console.ReadLine();
 
-            if (string.IsNullOrEmpty(message))
-                continue;
+            PacketType packetType;
+            string payload = "";
 
-            byte[] data = Encoding.UTF8.GetBytes(message);
+            switch (input.ToLower())
+            {
+                case "/attack":
+                    packetType = PacketType.PlayAttackCard;
+                    break;
 
-            BinaryWriter writer = new BinaryWriter(stream);
+                case "/heal":
+                    packetType = PacketType.PlayHealCard;
+                    break;
 
-            writer.Write((int)PacketType.ChatMessage);
+                case "/mana":
+                    packetType = PacketType.PlayManaCard;
+                    break;
+
+                default:
+                    packetType = PacketType.ChatMessage;
+                    payload = input;
+                    break;
+            }
+
+            byte[] data =
+                Encoding.UTF8.GetBytes(payload);
+
+            BinaryWriter writer =
+                new BinaryWriter(stream);
+
+            writer.Write((int)packetType);
 
             writer.Write(data.Length);
 
-            writer.Write(data);
+            if (data.Length > 0)
+            {
+                writer.Write(data);
+            }
         }
     }
 
@@ -76,6 +101,14 @@ class Program
 
                     case PacketType.TurnChanged:
                         Console.WriteLine($"TURN: {message}");
+                        break;
+
+                    case PacketType.GameStateUpdate:
+                        Console.WriteLine($"STATE: {message}");
+                        break;
+
+                    case PacketType.GameOver:
+                        Console.WriteLine($"GAME OVER: {message}");
                         break;
                 }
             }

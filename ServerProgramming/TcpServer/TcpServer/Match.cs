@@ -11,6 +11,8 @@ namespace Server
 
         public int CurrentTurnPlayerIndex = 0;
 
+        public bool IsGameOver = false;
+
         public Match(int matchId)
         {
             MatchId = matchId;

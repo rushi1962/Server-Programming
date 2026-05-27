@@ -18,6 +18,10 @@ namespace Server
 
         public Match CurrentMatch;
 
+        public int Health = 20;
+
+        public int Mana = 20;
+
         public ClientConnection(TcpClient tcpClient, int playerId)
         {
             TcpClient = tcpClient;
