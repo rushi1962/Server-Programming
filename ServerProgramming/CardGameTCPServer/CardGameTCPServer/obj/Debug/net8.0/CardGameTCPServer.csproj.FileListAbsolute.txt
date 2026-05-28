@@ -1,0 +1,15 @@
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Debug\net8.0\CardGameTCPServer.exe
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Debug\net8.0\CardGameTCPServer.deps.json
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Debug\net8.0\CardGameTCPServer.runtimeconfig.json
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Debug\net8.0\CardGameTCPServer.dll
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Debug\net8.0\CardGameTCPServer.pdb
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.AssemblyInfoInputs.cache
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.AssemblyInfo.cs
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.csproj.CoreCompileInputs.cache
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.sourcelink.json
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.dll
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\refint\CardGameTCPServer.dll
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.pdb
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\CardGameTCPServer.genruntimeconfig.cache
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\obj\Debug\net8.0\ref\CardGameTCPServer.dll

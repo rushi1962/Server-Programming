@@ -38,8 +38,7 @@
               "RelativeToolTip": "TcpServer\\Match.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:52:38.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-25T09:52:38.398Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "TcpServer\\ClientConnection.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\ClientConnection.cs",
               "RelativeToolTip": "TcpServer\\ClientConnection.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAdAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAmwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T10:44:44.095Z",
               "EditorCaption": ""
@@ -64,8 +63,7 @@
               "RelativeToolTip": "TcpServer\\PacketType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T10:36:08.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-23T10:36:08.255Z"
             },
             {
               "$type": "Document",
@@ -75,7 +73,7 @@
               "RelativeDocumentMoniker": "TcpServer\\Program.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Program.cs",
               "RelativeToolTip": "TcpServer\\Program.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAcwIUAAAAVAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAmwAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T11:58:07.833Z",
               "EditorCaption": ""
