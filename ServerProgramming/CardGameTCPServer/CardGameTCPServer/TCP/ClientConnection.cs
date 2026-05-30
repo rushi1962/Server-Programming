@@ -4,7 +4,7 @@ namespace CardGameTCPServer.TCP
 {
     class ClientConnection
     {
-        public int PlayerId;
+        public int ClientID;
 
         public TcpClient TcpClient;
 
@@ -14,23 +14,29 @@ namespace CardGameTCPServer.TCP
 
         public BinaryWriter Writer;
 
-        public string PlayerName;
+        public Match CurrentMatch;
 
-        //public Match CurrentMatch;
-
-        public ClientConnection(TcpClient tcpClient, int playerId)
+        public ClientConnection(TcpClient tcpClient, int clientID)
         {
             TcpClient = tcpClient;
 
-            PlayerId = playerId;
+            ClientID = clientID;
 
             Stream = tcpClient.GetStream();
 
             Reader = new BinaryReader(Stream);
 
             Writer = new BinaryWriter(Stream);
+        }
 
-            PlayerName = $"Player{playerId}";
+        public void SetCurrentMatch(Match match)
+        {
+            CurrentMatch = match;
+        }
+
+        public bool GetIsClientConnected()
+        {
+            return TcpClient.Connected;
         }
     }
 }

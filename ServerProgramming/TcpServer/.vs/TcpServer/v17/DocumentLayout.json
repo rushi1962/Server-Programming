@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "TcpServer\\Match.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Match.cs",
               "RelativeToolTip": "TcpServer\\Match.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAnAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAmwBcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-25T09:52:38.398Z"
             },
@@ -48,10 +48,9 @@
               "RelativeDocumentMoniker": "TcpServer\\ClientConnection.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\ClientConnection.cs",
               "RelativeToolTip": "TcpServer\\ClientConnection.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAmwAAAAAAAAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAUwBgAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T10:44:44.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T10:44:44.095Z"
             },
             {
               "$type": "Document",
@@ -61,7 +60,7 @@
               "RelativeDocumentMoniker": "TcpServer\\PacketType.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\PacketType.cs",
               "RelativeToolTip": "TcpServer\\PacketType.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T10:36:08.255Z"
             },
@@ -73,7 +72,7 @@
               "RelativeDocumentMoniker": "TcpServer\\Program.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TcpServer\\TcpServer\\Program.cs",
               "RelativeToolTip": "TcpServer\\Program.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAmwAoAAAAhAAAA",
+              "ViewState": "AQIAAEwBAAAAAAAAAAAUwF0BAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T11:58:07.833Z",
               "EditorCaption": ""
