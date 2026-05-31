@@ -156,6 +156,7 @@ namespace CardGameTCPServer.GameLogic
             gameState.PlayerState_2.PlayerManaBoostCost = PlayerList[1].GetCards().
                 Find(x => x.GetActionType() == Packets.GameActionTypes.GameAction_ManaBoost).GetCost();
 
+            gameState.GameTurnPlayerID = GetCurrentPlayerID();
             gameState.IsGameOver = IsGameOver;
             gameState.GameWinnerID = GameWinnerID;
 

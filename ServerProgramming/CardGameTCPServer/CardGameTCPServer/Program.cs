@@ -121,7 +121,7 @@ class Program
                     lock (matchToGameDictinaryLock)
                     {
                         matchToGameDictinary[client.CurrentMatch.MatchId].DeclareGame(client);
-                        BroadcastGameStateUpdate(client.CurrentMatch);
+                        BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
                     }
                     CleanupMatch(client.CurrentMatch);
                 }
@@ -168,7 +168,7 @@ class Program
                 break;
         }
 
-        BroadcastGameStateUpdate(client.CurrentMatch, client);
+        BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch, client);
     }
 
     static void TryCreateMatch()
@@ -208,7 +208,8 @@ class Program
             matchToGameDictinary.Add(newMatch.MatchId, new Game(playerIds));
         }
 
-        BroadcastGameStateUpdate(newMatch);
+        BroadcastGamePacket(GamePacketTypes.GameStarted, newMatch);
+        BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, newMatch);
     }
 
     static Game FindGame(ClientConnection client)
@@ -241,10 +242,20 @@ class Program
         client.Writer.Write(data);
     }
 
-    static void BroadcastGameStateUpdate(Match match, ClientConnection sender = null)
+    static void BroadcastGamePacket(GamePacketTypes gamePacketType, Match match, ClientConnection sender = null)
     {
         foreach(ClientConnection client in match.Clients)
         {
+            switch (gamePacketType)
+            {
+                case GamePacketTypes.GameStateUpdatePacket:
+                    SendGameStateUpdate(client);
+                    break;
+
+                case GamePacketTypes.GameStarted:
+                    SendGameStartedData(client);
+                    break;
+            }
             SendGameStateUpdate(client);
         }
     }
@@ -271,6 +282,14 @@ class Program
         client.Writer.Write((int)GamePacketTypes.GameStateUpdatePacket);
         client.Writer.Write(data.Length);
         client.Writer.Write(data);
+    }
+
+    static void SendGameStartedData(ClientConnection client) 
+    {
+        if (!client.GetIsClientConnected()) return;
+
+        client.Writer.Write((int)PacketType.GamePacket);
+        client.Writer.Write((int)GamePacketTypes.GameStarted);
     }
 
     static void CleanupMatch(Match match)
