@@ -30,7 +30,8 @@
               "RelativeToolTip": "TCPClient\\PacketType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T10:36:34.167Z"
+              "WhenOpened": "2026-05-23T10:36:34.167Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -40,7 +41,7 @@
               "RelativeDocumentMoniker": "TCPClient\\Program.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\TCPClient\\TCPClient\\Program.cs",
               "RelativeToolTip": "TCPClient\\Program.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAA1wG8AAAAeAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAcwFUAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T12:25:41.084Z",
               "EditorCaption": ""
