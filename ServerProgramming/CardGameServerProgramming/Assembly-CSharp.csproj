@@ -60,9 +60,14 @@
     <Analyzer Include="E:\UnityEditor\2022.3.31f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Game\UI\ButtonPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\GamePanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\CardButton.cs" />
     <Compile Include="Assets\Scripts\Game\GameState.cs" />
     <Compile Include="Assets\Scripts\Game\TCPClientConnection.cs" />
     <Compile Include="Assets\Scripts\Packets\PacketTypes.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\LoadingPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\TCP\TCPClient.cs" />
   </ItemGroup>
   <ItemGroup>

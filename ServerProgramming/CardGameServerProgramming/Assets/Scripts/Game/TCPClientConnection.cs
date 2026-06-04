@@ -49,8 +49,11 @@ public class TCPClientConnection : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(Instance);
+        DontDestroyOnLoad(Instance);        
+    }
 
+    public void ConnectToServer()
+    {
         m_TCPClient = new TCPClient();
 
         if (m_TCPClient.IsConnected())
