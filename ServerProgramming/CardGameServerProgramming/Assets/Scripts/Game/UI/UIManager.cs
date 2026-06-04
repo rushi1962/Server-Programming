@@ -39,12 +39,12 @@ public class UIManager : MonoBehaviour
         return buttonPanel.OnButtonClickedEvent;
     }
 
-    public Action SetMatchResultPanel(string winnerName)
+    public Action SetMatchResultPanel(string MatchResultMessage)
     {
         ResetPanels();
 
         buttonPanel.gameObject.SetActive(true);
-        buttonPanel.SetTexts($"{winnerName} won!", "Leave match");
+        buttonPanel.SetTexts(MatchResultMessage, "Leave match");
         return buttonPanel.OnButtonClickedEvent;
     }
 

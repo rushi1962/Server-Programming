@@ -23,6 +23,8 @@ public class TCPClientConnection : MonoBehaviour
 
     public Action Event_GameStarted;
     public Action<GameState> Event_GameStateUpdated;
+    public Action Event_Disconnected;
+
     #endregion
 
     #region ConcurrentQueues
@@ -33,12 +35,17 @@ public class TCPClientConnection : MonoBehaviour
     ConcurrentQueue<int> pendingGameStartedEvents = new ConcurrentQueue<int>();
 
     ConcurrentQueue<GameState> pendingStates = new ConcurrentQueue<GameState>();
+    ConcurrentQueue<int> pendingGameDisconnectedEvents = new ConcurrentQueue<int>();
 
     #endregion
 
     private TCPClient m_TCPClient;
 
     private Thread receiveThread;
+
+    private BinaryWriter writer;
+
+    private readonly object writerLock = new object();
 
     void Start()
     {
@@ -49,7 +56,7 @@ public class TCPClientConnection : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(Instance);        
+        DontDestroyOnLoad(gameObject);        
     }
 
     public void ConnectToServer()
@@ -65,10 +72,18 @@ public class TCPClientConnection : MonoBehaviour
                 receiveThread = new Thread(() => ReceiveMessages(networkStream));
                 receiveThread.IsBackground = true;
                 receiveThread.Start();
+
+                writer = new BinaryWriter(networkStream);
             }
 
             Event_ConnectedToServer?.Invoke();
         }
+    }
+
+    public bool IsConnected()
+    {
+        return m_TCPClient != null &&
+               m_TCPClient.IsConnected();
     }
 
     private void Update()
@@ -91,6 +106,11 @@ public class TCPClientConnection : MonoBehaviour
         while (pendingStates.TryDequeue(out GameState state))
         {
             Event_GameStateUpdated?.Invoke(state);
+        }
+
+        while (pendingGameDisconnectedEvents.TryDequeue(out int gameDisconnected))
+        {
+            Event_Disconnected?.Invoke();
         }
     }
 
@@ -125,6 +145,7 @@ public class TCPClientConnection : MonoBehaviour
         catch (Exception ex)
         {
             Debug.LogError(ex);
+            pendingGameDisconnectedEvents.Enqueue(0);
         }
     }
 
@@ -174,6 +195,30 @@ public class TCPClientConnection : MonoBehaviour
 
                 break;
         }
+    }
+
+    public void SendSystemPacket(SystemPacketTypes systemPacketType)
+    {
+        lock(writerLock)
+        {
+            writer.Write((int)PacketType.SystemPacket);
+            writer.Write((int)systemPacketType);
+        }
+    }
+
+    public void SendGameActionPacket(GameActionTypes actionType)
+    {
+        lock (writerLock)
+        {
+            writer.Write((int)PacketType.GamePacket);
+            writer.Write((int)GamePacketTypes.GameActionPacket);
+            writer.Write((int)actionType);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        m_TCPClient.CloseConnection();
     }
 
 }

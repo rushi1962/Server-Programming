@@ -29,6 +29,11 @@ namespace TCP
         {
             return (client != null && client.Connected);
         }
+
+        public void CloseConnection()
+        {
+            client.Close();
+        }
     }
 }
 

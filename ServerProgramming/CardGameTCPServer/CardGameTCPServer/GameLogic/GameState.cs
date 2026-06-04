@@ -12,6 +12,9 @@ namespace CardGameTCPServer.GameLogic
 
         public GameState()
         {
+            PlayerState_1 = new PlayerState();
+            PlayerState_2 = new PlayerState();
+
             GameTurnPlayerID = 0;
             IsGameOver = false;
             GameWinnerID = 0;

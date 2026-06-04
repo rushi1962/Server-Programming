@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\UI\ButtonPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\GamePanel.cs" />
+    <Compile Include="Assets\Scripts\Game\Controllers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\UI\CardButton.cs" />
     <Compile Include="Assets\Scripts\Game\GameState.cs" />
     <Compile Include="Assets\Scripts\Game\TCPClientConnection.cs" />
