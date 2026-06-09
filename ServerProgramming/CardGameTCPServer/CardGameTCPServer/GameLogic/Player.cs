@@ -3,7 +3,7 @@ using CardGameTCPServer.Packets;
 
 namespace CardGameTCPServer.GameLogic
 {
-    class Player
+    public class Player
     {
         private int PlayerID;
 

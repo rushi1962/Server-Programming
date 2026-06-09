@@ -2,7 +2,7 @@
 
 namespace CardGameTCPServer.TCP
 {
-    class ClientConnection
+    public class ClientConnection
     {
         public int ClientID;
 

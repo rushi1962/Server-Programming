@@ -151,23 +151,22 @@ class Program
         int gameActionTypeValue = client.Reader.ReadInt32();
         GameActionTypes gameActionType = (GameActionTypes)gameActionTypeValue;
         Game game = FindGame(client);
+        Match clientCurrentMatch = client.CurrentMatch;
 
         switch (gameActionType)
         {
             case GameActionTypes.GameAction_Attack:
-                game.AttackAction(client);
+                clientCurrentMatch.EnqueueCommand(new AttackCommand(client, game));
                 break;
 
             case GameActionTypes.GameAction_Heal:
-                game.HealAction(client);
+                clientCurrentMatch.EnqueueCommand(new HealCommand(client, game));
                 break;
 
             case GameActionTypes.GameAction_ManaBoost:
-                game.ManaBostAction(client);
+                clientCurrentMatch.EnqueueCommand(new ManaBoostCommand(client, game));
                 break;
         }
-
-        BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch, client);
     }
 
     static void TryCreateMatch()
@@ -190,7 +189,9 @@ class Program
         //Create match
         Match newMatch = new Match(nextMatchID, clientsToGoInMatch);
 
-        lock(matchListLock)
+        newMatch.BroadcastGameUpdate += BroadcastGamePacket;
+
+        lock (matchListLock)
         {
             matchList.Add(newMatch);
         }
@@ -255,7 +256,6 @@ class Program
                     SendGameStartedData(client);
                     break;
             }
-            SendGameStateUpdate(client);
         }
     }
 
@@ -297,6 +297,8 @@ class Program
         {
             client.CurrentMatch = null;
         }
+
+        match.MatchCleanup();
 
         lock (matchListLock)
         {

@@ -3,7 +3,7 @@ using CardGameTCPServer.Packets;
 
 namespace CardGameTCPServer.GameLogic
 {
-    class Game
+    public class Game
     {
         private int CurrentTurnPlayerIndex = 0;
         private bool IsGameOver = false;

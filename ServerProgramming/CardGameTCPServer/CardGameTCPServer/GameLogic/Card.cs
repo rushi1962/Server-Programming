@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CardGameTCPServer.GameLogic
 {
-    class Card
+    public class Card
     {
         private GameActionTypes gameActionType;
         private int amount;
