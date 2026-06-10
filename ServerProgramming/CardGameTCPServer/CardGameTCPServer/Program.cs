@@ -14,21 +14,23 @@ class Program
 
     static List<Match> matchList = new List<Match>();
 
-    static Dictionary<int, Game> matchToGameDictinary = new Dictionary<int, Game>();
+    static List<Worker> workers = new List<Worker>();
     #endregion
 
     #region locks
     static readonly object clientsListLock = new object();
     static readonly object matchMakingQueueLock = new object();
     static readonly object matchListLock = new object();
-    static readonly object matchToGameDictinaryLock = new object();
     #endregion
 
     static int nextPlayerId = 1;
     static int nextMatchID = 1;
+    static int nextWorkerIndex = 0;
 
     static void Main(string[] args)
     {
+        CreateWorkers();
+
         TcpListener server = TCPServer.GetServer();
 
         while (true)
@@ -50,6 +52,26 @@ class Program
             Thread clientThread = new Thread(() => HandleClient(client));
             clientThread.Start();
         }
+    }
+
+    static void CreateWorkers()
+    {
+        int workerCount = Environment.ProcessorCount;
+
+        for (int i = 0; i < workerCount; i++)
+        {
+            workers.Add(new Worker());
+        }
+    }
+
+    static Worker FindWorkerForMatch()
+    {
+        Worker worker = workers[nextWorkerIndex];
+
+        nextWorkerIndex++;
+        nextWorkerIndex %= workers.Count;
+
+        return worker;
     }
 
     private static void HandleClient(ClientConnection client)
@@ -81,10 +103,7 @@ class Program
         {
             if(client.CurrentMatch != null)
             {
-                lock(matchToGameDictinaryLock)
-                {
-                    matchToGameDictinary[client.CurrentMatch.MatchId].DeclareGame(client);
-                }
+                client.CurrentMatch.GetGame().DeclareGame(client);
                 CleanupMatch(client.CurrentMatch);
             }
 
@@ -117,11 +136,8 @@ class Program
             case SystemPacketTypes.LeaveGame:
                 if (client.CurrentMatch != null)
                 {
-                    lock (matchToGameDictinaryLock)
-                    {
-                        matchToGameDictinary[client.CurrentMatch.MatchId].DeclareGame(client);
-                        BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
-                    }
+                    client.CurrentMatch.GetGame().DeclareGame(client);
+                    BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
                     CleanupMatch(client.CurrentMatch);
                 }
                 break;
@@ -150,7 +166,7 @@ class Program
     {
         int gameActionTypeValue = client.Reader.ReadInt32();
         GameActionTypes gameActionType = (GameActionTypes)gameActionTypeValue;
-        Game game = FindGame(client);
+        Game game = client.CurrentMatch.GetGame();
         Match clientCurrentMatch = client.CurrentMatch;
 
         switch (gameActionType)
@@ -203,23 +219,12 @@ class Program
             playerIds.Add(client.ClientID);
         }
 
-        lock (matchToGameDictinaryLock)
-        {
-            matchToGameDictinary.Add(newMatch.MatchId, new Game(playerIds));
-        }
+        Worker worker = FindWorkerForMatch();
+        worker.AddMatch(newMatch);
+        newMatch.OwnerWorker = worker;
 
         BroadcastGamePacket(GamePacketTypes.GameStarted, newMatch);
         BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, newMatch);
-    }
-
-    static Game FindGame(ClientConnection client)
-    {
-        Game game = null;
-        lock(matchToGameDictinaryLock)
-        {
-            game = matchToGameDictinary[client.CurrentMatch.MatchId];
-        }
-        return game;
     }
 
     static void SendClientProfileData(ClientConnection client)
@@ -263,11 +268,7 @@ class Program
     {
         if (!client.GetIsClientConnected()) return;
 
-        Game game = null;
-        lock (matchToGameDictinaryLock)
-        {
-            game = matchToGameDictinary[client.CurrentMatch.MatchId];
-        }
+        Game game = client.CurrentMatch.GetGame();
         var options = new JsonSerializerOptions
         {
             IncludeFields = true
@@ -300,14 +301,11 @@ class Program
 
         match.MatchCleanup();
 
+        match.OwnerWorker.RemoveMatch(match);
+
         lock (matchListLock)
         {
             matchList.Remove(match);
-        }
-
-        lock (matchToGameDictinaryLock)
-        {
-            matchToGameDictinary.Remove(match.MatchId);
         }
     }
 }

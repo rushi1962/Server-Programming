@@ -13,10 +13,12 @@ namespace CardGameTCPServer.TCP
 
         public Action<GamePacketTypes, Match, ClientConnection> BroadcastGameUpdate;
 
+        private Game game;
+        public Worker OwnerWorker { get; set; }
+
         private ConcurrentQueue<IGameCommand> gameCommands = new ConcurrentQueue<IGameCommand>();
 
         private bool running = true;
-        private Thread tickThread;
         private bool stateChanged = false;
 
         public Match(int matchId, List<ClientConnection> clients)
@@ -29,18 +31,20 @@ namespace CardGameTCPServer.TCP
                 client.SetCurrentMatch(this);
             }
 
+            //Create game
+            List<int> playerIds = new List<int>();
+            foreach (ClientConnection client in clients)
+            {
+                playerIds.Add(client.ClientID);
+            }
+            game = new Game(playerIds);
+
             running = true;
-            tickThread = new Thread(() => Tick());
-            tickThread.Start();
         }
 
-        void Tick() 
+        public Game GetGame()
         {
-            while (running)
-            {
-                ProcessCommands();
-                Thread.Sleep(50);
-            }
+            return game;
         }
 
         public void EnqueueCommand(IGameCommand command)
