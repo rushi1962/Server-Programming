@@ -17,7 +17,8 @@ namespace CardGameTCPServer.GameLogic
         void IGameCommand.Execute()
         {
             game.DeclareGame(client);
-            //Broadcast game state and clean up match
+            client.IsConnected = false;
+            client.EnqueueOutgoingPacket(new GameStateUpdatePacket(game.GetGameState()));
         }
     }
 }

@@ -47,7 +47,7 @@ class Program
             Console.WriteLine($"Client joined the server | ID : {client.ClientID}");
 
             //Send client ID to client
-            SendClientProfileData(client);
+            client.EnqueueOutgoingPacket(new ClientProfileDataPacket(client.ClientID));
 
             //Create a separate thread for client
             _ = HandleClient(client);
@@ -104,6 +104,8 @@ class Program
             if(client.CurrentMatch != null)
             {
                 client.CurrentMatch.GetGame().DeclareGame(client);
+                client.IsConnected = false;
+                BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
                 CleanupMatch(client.CurrentMatch);
             }
 
@@ -137,6 +139,7 @@ class Program
                 if (client.CurrentMatch != null)
                 {
                     client.CurrentMatch.GetGame().DeclareGame(client);
+                    client.IsConnected = false;
                     BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
                     CleanupMatch(client.CurrentMatch);
                 }
@@ -227,69 +230,23 @@ class Program
         BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, newMatch);
     }
 
-    static void SendClientProfileData(ClientConnection client)
-    {
-        if (!client.GetIsClientConnected()) return;
-
-        //Send client ID
-        client.Writer.Write((int)PacketType.SystemPacket);
-        client.Writer.Write((int)SystemPacketTypes.ClientUUID);
-        client.Writer.Write(client.ClientID);
-
-        //Send client profile name
-        string clientName = $"Player{client.ClientID}";
-
-        byte[] data = Encoding.UTF8.GetBytes(clientName);
-
-        client.Writer.Write((int)PacketType.SystemPacket);
-        client.Writer.Write((int)SystemPacketTypes.ClientName);
-        client.Writer.Write(data.Length);
-        client.Writer.Write(data);
-    }
-
     static void BroadcastGamePacket(GamePacketTypes gamePacketType, Match match, ClientConnection sender = null)
     {
         foreach(ClientConnection client in match.Clients)
         {
+            if (!client.IsConnected) continue;
+
             switch (gamePacketType)
             {
                 case GamePacketTypes.GameStateUpdatePacket:
-                    SendGameStateUpdate(client);
+                    client.EnqueueOutgoingPacket(new GameStateUpdatePacket(match.GetGame().GetGameState()));
                     break;
 
                 case GamePacketTypes.GameStarted:
-                    SendGameStartedData(client);
+                    client.EnqueueOutgoingPacket(new GameStartedPacket());
                     break;
             }
         }
-    }
-
-    static void SendGameStateUpdate(ClientConnection client)
-    {
-        if (!client.GetIsClientConnected()) return;
-
-        Game game = client.CurrentMatch.GetGame();
-        var options = new JsonSerializerOptions
-        {
-            IncludeFields = true
-        };
-
-        string gameStateJsonString = JsonSerializer.Serialize(game.GetGameState(), options);
-
-        byte[] data = Encoding.UTF8.GetBytes(gameStateJsonString);
-
-        client.Writer.Write((int)PacketType.GamePacket);
-        client.Writer.Write((int)GamePacketTypes.GameStateUpdatePacket);
-        client.Writer.Write(data.Length);
-        client.Writer.Write(data);
-    }
-
-    static void SendGameStartedData(ClientConnection client) 
-    {
-        if (!client.GetIsClientConnected()) return;
-
-        client.Writer.Write((int)PacketType.GamePacket);
-        client.Writer.Write((int)GamePacketTypes.GameStarted);
     }
 
     static void CleanupMatch(Match match)
@@ -300,8 +257,8 @@ class Program
         }
 
         match.MatchCleanup();
-
         match.OwnerWorker.RemoveMatch(match);
+        match.BroadcastGameUpdate -= BroadcastGamePacket;
 
         lock (matchListLock)
         {
