@@ -4,6 +4,7 @@ using System.Text.Json;
 using CardGameTCPServer.GameLogic;
 using CardGameTCPServer.Packets;
 using CardGameTCPServer.TCP;
+using CardGameTCPServer.Utilities;
 
 class Program
 {
@@ -27,7 +28,7 @@ class Program
     static int nextMatchID = 1;
     static int nextWorkerIndex = 0;
 
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         CreateWorkers();
 
@@ -36,7 +37,7 @@ class Program
         while (true)
         {
             Console.WriteLine("Waiting for client...");
-            TcpClient tcpClient = server.AcceptTcpClient();
+            TcpClient tcpClient = await server.AcceptTcpClientAsync();
 
             ClientConnection client = new ClientConnection(tcpClient, nextPlayerId++);
             lock (clientsListLock)
@@ -49,8 +50,7 @@ class Program
             SendClientProfileData(client);
 
             //Create a separate thread for client
-            Thread clientThread = new Thread(() => HandleClient(client));
-            clientThread.Start();
+            _ = HandleClient(client);
         }
     }
 
@@ -74,26 +74,26 @@ class Program
         return worker;
     }
 
-    private static void HandleClient(ClientConnection client)
+    static async Task HandleClient(ClientConnection client)
     {
         try
         {
             while (true)
             {
-                int packetTypeValue = client.Reader.ReadInt32();
+                int packetTypeValue = await PacketReader.ReadInt32Async(client.Stream);
                 PacketType packetType = (PacketType)packetTypeValue;
 
                 switch (packetType) 
                 {
                     case PacketType.SystemPacket:
-                        ProcessSystemPackets(client);
+                        await ProcessSystemPackets(client);
                         break;
 
                     case PacketType.MatchMakingLobbyPacket:
                         break;
 
                     case PacketType.GamePacket:
-                        ProcessGamePackets(client);
+                        await ProcessGamePackets(client);
                         break;
                 }
 
@@ -118,9 +118,9 @@ class Program
         client.TcpClient.Close();
     }
 
-    private static void ProcessSystemPackets(ClientConnection client)
+    static async Task ProcessSystemPackets(ClientConnection client)
     {
-        int systemPacketTypeValue = client.Reader.ReadInt32();
+        int systemPacketTypeValue = await PacketReader.ReadInt32Async(client.Stream);
         SystemPacketTypes systemPacketType = (SystemPacketTypes)systemPacketTypeValue;
 
         switch (systemPacketType) 
@@ -149,22 +149,22 @@ class Program
         //ToDo: Needs to be implemented
     }
 
-    private static void ProcessGamePackets(ClientConnection client)
+    static async Task ProcessGamePackets(ClientConnection client)
     {
-        int gamePacketTypeValue = client.Reader.ReadInt32();
+        int gamePacketTypeValue = await PacketReader.ReadInt32Async(client.Stream);
         GamePacketTypes gamePacketType = (GamePacketTypes)gamePacketTypeValue;
 
         switch (gamePacketType)
         {
             case GamePacketTypes.GameActionPacket:
-                ProcessGameActionPackets(client);
+                await ProcessGameActionPackets(client);
                 break;
         }
     }
 
-    private static void ProcessGameActionPackets(ClientConnection client)
+    static async Task ProcessGameActionPackets(ClientConnection client)
     {
-        int gameActionTypeValue = client.Reader.ReadInt32();
+        int gameActionTypeValue = await PacketReader.ReadInt32Async(client.Stream);
         GameActionTypes gameActionType = (GameActionTypes)gameActionTypeValue;
         Game game = client.CurrentMatch.GetGame();
         Match clientCurrentMatch = client.CurrentMatch;
