@@ -18,7 +18,12 @@ namespace CardGameTCPServer.TCP
 
         public bool IsConnected;
 
-        ConcurrentQueue<IOutgoingPacket> outgoingPackets = new ConcurrentQueue<IOutgoingPacket>();
+        ConcurrentQueue<IOutgoingPacket> reliablePackets = new ConcurrentQueue<IOutgoingPacket>();
+
+        GameStateUpdatePacket latestStatePacket = null;
+        GameStateUpdatePacket StatePacketToSend = null;
+
+        private readonly object statePacketLock = new();
 
         public ClientConnection(TcpClient tcpClient, int clientID)
         {
@@ -45,21 +50,29 @@ namespace CardGameTCPServer.TCP
             return TcpClient.Connected;
         }
 
-        public void EnqueueOutgoingPacket(IOutgoingPacket packet)
+        public void EnqueueReliableOutgoingPacket(IOutgoingPacket packet)
         {
-            outgoingPackets.Enqueue(packet);
+            reliablePackets.Enqueue(packet);
         }
 
-        public bool TryDequeueOutgoingPacket(out IOutgoingPacket packet)
+        public bool TryDequeueReliableOutgoingPacket(out IOutgoingPacket packet)
         {
-            return outgoingPackets.TryDequeue(out packet);
+            return reliablePackets.TryDequeue(out packet);
+        }
+
+        public void PushLatestGameState(GameStateUpdatePacket latestStatePacket)
+        {
+            lock(statePacketLock)
+            {
+                this.latestStatePacket = latestStatePacket;
+            }
         }
 
         async Task SendLoop()
         {
             while (IsConnected)
             {
-                if (outgoingPackets.TryDequeue(out IOutgoingPacket packet))
+                if (reliablePackets.TryDequeue(out IOutgoingPacket packet))
                 {
                     try
                     {
@@ -68,6 +81,27 @@ namespace CardGameTCPServer.TCP
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
+                        IsConnected=false;
+                        break;
+                    }
+                }
+
+                lock (statePacketLock) 
+                {
+                    StatePacketToSend = latestStatePacket;
+                    latestStatePacket = null;
+                }                    
+
+                if(StatePacketToSend != null)
+                {
+                    try
+                    {
+                        await StatePacketToSend.WriteAsync(Stream);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                        IsConnected = false;
                         break;
                     }
                 }

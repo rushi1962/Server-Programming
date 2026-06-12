@@ -18,7 +18,7 @@ namespace CardGameTCPServer.GameLogic
         {
             game.DeclareGame(client);
             client.IsConnected = false;
-            client.EnqueueOutgoingPacket(new GameStateUpdatePacket(game.GetGameState()));
+            client.EnqueueReliableOutgoingPacket(new GameStateUpdatePacket(game.GetGameState()));
         }
     }
 }

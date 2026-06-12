@@ -47,7 +47,7 @@ class Program
             Console.WriteLine($"Client joined the server | ID : {client.ClientID}");
 
             //Send client ID to client
-            client.EnqueueOutgoingPacket(new ClientProfileDataPacket(client.ClientID));
+            client.EnqueueReliableOutgoingPacket(new ClientProfileDataPacket(client.ClientID));
 
             //Create a separate thread for client
             _ = HandleClient(client);
@@ -239,11 +239,11 @@ class Program
             switch (gamePacketType)
             {
                 case GamePacketTypes.GameStateUpdatePacket:
-                    client.EnqueueOutgoingPacket(new GameStateUpdatePacket(match.GetGame().GetGameState()));
+                    client.PushLatestGameState(new GameStateUpdatePacket(match.GetGame().GetGameState()));
                     break;
 
                 case GamePacketTypes.GameStarted:
-                    client.EnqueueOutgoingPacket(new GameStartedPacket());
+                    client.EnqueueReliableOutgoingPacket(new GameStartedPacket());
                     break;
             }
         }
