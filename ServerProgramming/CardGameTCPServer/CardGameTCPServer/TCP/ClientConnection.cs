@@ -4,26 +4,33 @@ using CardGameTCPServer.Packets;
 
 namespace CardGameTCPServer.TCP
 {
+    public enum ConnectionState
+    {
+        Connected = 1,
+        Lagging = 2,
+        Disconnected =3
+    }
+
     public class ClientConnection
     {
+        //TCP
         public int ClientID;
-
         public TcpClient TcpClient;
-
         public NetworkStream Stream;
-
         public BinaryReader Reader;
+        public volatile ConnectionState ConnectionState;
 
+        //Match
         public Match CurrentMatch;
 
-        public bool IsConnected;
-
+        //Packets
         ConcurrentQueue<IOutgoingPacket> reliablePackets = new ConcurrentQueue<IOutgoingPacket>();
-
         GameStateUpdatePacket latestStatePacket = null;
         GameStateUpdatePacket StatePacketToSend = null;
-
         private readonly object statePacketLock = new();
+
+        //Heartbeats
+        public DateTime LastRecievedPacketTime { get; private set; }
 
         public ClientConnection(TcpClient tcpClient, int clientID)
         {
@@ -35,7 +42,9 @@ namespace CardGameTCPServer.TCP
 
             Reader = new BinaryReader(Stream);
 
-            IsConnected = true;
+            ConnectionState = ConnectionState.Connected;
+
+            LastRecievedPacketTime = DateTime.UtcNow;
 
             _ = SendLoop();
         }
@@ -60,6 +69,11 @@ namespace CardGameTCPServer.TCP
             return reliablePackets.TryDequeue(out packet);
         }
 
+        public void UpdateHeartbeat()
+        {
+            LastRecievedPacketTime = DateTime.UtcNow;
+        }
+
         public void PushLatestGameState(GameStateUpdatePacket latestStatePacket)
         {
             lock(statePacketLock)
@@ -70,7 +84,7 @@ namespace CardGameTCPServer.TCP
 
         async Task SendLoop()
         {
-            while (IsConnected)
+            while (ConnectionState == ConnectionState.Connected)
             {
                 if (reliablePackets.TryDequeue(out IOutgoingPacket packet))
                 {
@@ -81,7 +95,6 @@ namespace CardGameTCPServer.TCP
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
-                        IsConnected=false;
                         break;
                     }
                 }
@@ -101,7 +114,6 @@ namespace CardGameTCPServer.TCP
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
-                        IsConnected = false;
                         break;
                     }
                 }

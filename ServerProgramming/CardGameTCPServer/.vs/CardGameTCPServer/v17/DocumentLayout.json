@@ -11,20 +11,36 @@
       "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\clientprofiledatapacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\clientprofiledatapacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gamelogic\\gamecommands\\leavematchcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gamelogic\\gamecommands\\leavematchcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\services\\heartbeatmonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\services\\heartbeatmonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\networkconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\networkconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gameconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gameconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\tcp\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\tcp\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\outgoingpackets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\outgoingpackets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\tcp\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\tcp\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gamelogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gamelogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gamelogic\\gamecommands\\attackcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gamelogic\\gamecommands\\attackcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\systempackettypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,12 +51,12 @@
       "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\packettypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gamelogic\\gamecommands\\attackcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gamelogic\\gamecommands\\attackcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\clientprofiledatapacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\clientprofiledatapacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gamelogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gamelogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\outgoingpackets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\outgoingpackets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\gamestartedpacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\gamestateupdatepacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\gamestateupdatepacket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\tcp\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\tcp\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\gamepackettypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -89,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\packets\\cardstype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\packets\\cardstype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|e:\\github\\server-programming\\serverprogramming\\cardgametcpserver\\cardgametcpserver\\gameconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A21F9E-A14F-4EF3-B1B2-5E6FB20AFA1E}|CardGameTCPServer\\CardGameTCPServer.csproj|solutionrelative:cardgametcpserver\\gameconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -102,69 +110,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClientProfileDataPacket.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
-              "RelativeToolTip": "CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAwwA0AAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T13:15:11.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Program.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\Program.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Program.cs",
-              "RelativeToolTip": "CardGameTCPServer\\Program.cs",
-              "ViewState": "AQIAAPMAAAAAAAAAAAA1wAwBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T10:54:52.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Match.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Match.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\TCP\\Match.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Match.cs",
-              "RelativeToolTip": "CardGameTCPServer\\TCP\\Match.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAiwEkAAAAPAAAA",
+              "Title": "NetworkConfigs.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\NetworkConfigs.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\NetworkConfigs.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\NetworkConfigs.cs",
+              "RelativeToolTip": "CardGameTCPServer\\NetworkConfigs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T10:55:18.254Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SystemPacketTypes.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
-              "RelativeToolTip": "CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T11:18:16.157Z"
+              "WhenOpened": "2026-06-15T09:28:25.663Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LeaveMatchCommand.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
-              "RelativeToolTip": "CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAJAAAA",
+              "Title": "HeartBeatMonitor.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Services\\HeartBeatMonitor.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\Services\\HeartBeatMonitor.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Services\\HeartBeatMonitor.cs",
+              "RelativeToolTip": "CardGameTCPServer\\Services\\HeartBeatMonitor.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAADYAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T11:16:06.358Z",
+              "WhenOpened": "2026-06-13T15:03:02.673Z",
               "EditorCaption": ""
             },
             {
@@ -175,26 +146,90 @@
               "RelativeDocumentMoniker": "CardGameTCPServer\\TCP\\ClientConnection.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\ClientConnection.cs",
               "RelativeToolTip": "CardGameTCPServer\\TCP\\ClientConnection.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAYwGcAAAAsAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAiwBMAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-09T11:31:19.319Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OutgoingPackets.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\OutgoingPackets.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\OutgoingPackets.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\OutgoingPackets.cs",
-              "RelativeToolTip": "CardGameTCPServer\\Packets\\OutgoingPackets.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAANAAAA",
+              "DocumentIndex": 9,
+              "Title": "AttackCommand.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
+              "RelativeToolTip": "CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T12:20:54.023Z"
+              "WhenOpened": "2026-06-09T11:14:04.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "Game.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\Game.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\Game.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\Game.cs",
+              "RelativeToolTip": "CardGameTCPServer\\GameLogic\\Game.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAowDQAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T10:53:07.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Program.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\Program.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Program.cs",
+              "RelativeToolTip": "CardGameTCPServer\\Program.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAABAwFAAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T10:54:52.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LeaveMatchCommand.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
+              "RelativeToolTip": "CardGameTCPServer\\GameLogic\\GameCommands\\LeaveMatchCommand.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA0wBIAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T11:16:06.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Match.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Match.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\TCP\\Match.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Match.cs",
+              "RelativeToolTip": "CardGameTCPServer\\TCP\\Match.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAwwA0AAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T10:55:18.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameConfigs.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameConfigs.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\GameConfigs.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameConfigs.cs",
+              "RelativeToolTip": "CardGameTCPServer\\GameConfigs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-30T06:22:20.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "PacketTypes.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\PacketTypes.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\PacketTypes.cs",
@@ -206,31 +241,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AttackCommand.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
-              "RelativeToolTip": "CardGameTCPServer\\GameLogic\\GameCommands\\AttackCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T11:14:04.376Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Game.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\Game.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\Game.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\Game.cs",
-              "RelativeToolTip": "CardGameTCPServer\\GameLogic\\Game.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAA0wHQAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T10:53:07.916Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "SystemPacketTypes.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
+              "RelativeToolTip": "CardGameTCPServer\\Packets\\SystemPacketTypes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T11:18:16.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Worker.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\TCP\\Worker.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Worker.cs",
+              "RelativeToolTip": "CardGameTCPServer\\TCP\\Worker.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAIwDgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T11:06:02.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OutgoingPackets.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\OutgoingPackets.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\OutgoingPackets.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\OutgoingPackets.cs",
+              "RelativeToolTip": "CardGameTCPServer\\Packets\\OutgoingPackets.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T12:20:54.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ClientProfileDataPacket.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
+              "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
+              "RelativeToolTip": "CardGameTCPServer\\Packets\\ClientProfileDataPacket.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAwwA0AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T13:15:11.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "GameStartedPacket.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\GameStartedPacket.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\GameStartedPacket.cs",
@@ -242,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "GameStateUpdatePacket.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\GameStateUpdatePacket.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\GameStateUpdatePacket.cs",
@@ -254,19 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Worker.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Worker.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\TCP\\Worker.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\Worker.cs",
-              "RelativeToolTip": "CardGameTCPServer\\TCP\\Worker.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAkwDgAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T11:06:02.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "GamePacketTypes.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\GamePacketTypes.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\GamePacketTypes.cs",
@@ -278,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "ManaBoostCommand.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\ManaBoostCommand.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommands\\ManaBoostCommand.cs",
@@ -290,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "GameCommand.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommand.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommand.cs",
@@ -302,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "TCPServer.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\TCP\\TCPServer.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\TCP\\TCPServer.cs",
@@ -314,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "HealCommand.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameCommands\\HealCommand.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameCommands\\HealCommand.cs",
@@ -326,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "Player.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\Player.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\Player.cs",
@@ -338,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "Card.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\Card.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\Card.cs",
@@ -350,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "GameState.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameLogic\\GameState.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\GameLogic\\GameState.cs",
@@ -362,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "CardsType.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\Packets\\CardsType.cs",
               "RelativeDocumentMoniker": "CardGameTCPServer\\Packets\\CardsType.cs",
@@ -371,18 +418,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-30T09:47:37.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "GameConfig.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameConfig.cs",
-              "RelativeDocumentMoniker": "CardGameTCPServer\\GameConfig.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\GameConfig.cs",
-              "RelativeToolTip": "CardGameTCPServer\\GameConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T06:22:20.041Z"
             }
           ]
         }

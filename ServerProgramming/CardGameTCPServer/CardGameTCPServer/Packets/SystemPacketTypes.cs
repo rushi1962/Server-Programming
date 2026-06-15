@@ -5,6 +5,7 @@
         MatchMakingRequested = 1,
         ClientName = 2,
         ClientUUID = 3,
-        LeaveGame = 4
+        LeaveGame = 4,
+        HeartBeat = 5
     }
 }

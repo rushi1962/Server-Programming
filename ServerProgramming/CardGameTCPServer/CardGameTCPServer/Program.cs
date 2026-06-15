@@ -78,7 +78,7 @@ class Program
     {
         try
         {
-            while (true)
+            while (client.ConnectionState == ConnectionState.Connected)
             {
                 int packetTypeValue = await PacketReader.ReadInt32Async(client.Stream);
                 PacketType packetType = (PacketType)packetTypeValue;
@@ -97,6 +97,7 @@ class Program
                         break;
                 }
 
+                client.UpdateHeartbeat();
             }
         }
         catch
@@ -104,7 +105,6 @@ class Program
             if(client.CurrentMatch != null)
             {
                 client.CurrentMatch.GetGame().DeclareGame(client);
-                client.IsConnected = false;
                 BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
                 CleanupMatch(client.CurrentMatch);
             }
@@ -139,10 +139,13 @@ class Program
                 if (client.CurrentMatch != null)
                 {
                     client.CurrentMatch.GetGame().DeclareGame(client);
-                    client.IsConnected = false;
                     BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
                     CleanupMatch(client.CurrentMatch);
                 }
+                break;
+
+            case SystemPacketTypes.HeartBeat:
+                
                 break;
         }
     }
@@ -194,12 +197,12 @@ class Program
 
         lock (matchMakingQueueLock)
         {
-            if (matchMakingQueue.Count < GameConfig.NUMBER_OF_PLAYERS_IN_A_MATCH)
+            if (matchMakingQueue.Count < GameConfigs.NUMBER_OF_PLAYERS_IN_A_MATCH)
             {
                 return;
             }
 
-            for (int i = 0; i < GameConfig.NUMBER_OF_PLAYERS_IN_A_MATCH; i++)
+            for (int i = 0; i < GameConfigs.NUMBER_OF_PLAYERS_IN_A_MATCH; i++)
             {
                 clientsToGoInMatch.Add(matchMakingQueue.Dequeue());
             }
@@ -234,8 +237,6 @@ class Program
     {
         foreach(ClientConnection client in match.Clients)
         {
-            if (!client.IsConnected) continue;
-
             switch (gamePacketType)
             {
                 case GamePacketTypes.GameStateUpdatePacket:

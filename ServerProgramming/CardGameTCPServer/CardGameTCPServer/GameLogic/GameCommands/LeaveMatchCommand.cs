@@ -17,8 +17,11 @@ namespace CardGameTCPServer.GameLogic
         void IGameCommand.Execute()
         {
             game.DeclareGame(client);
-            client.IsConnected = false;
             client.EnqueueReliableOutgoingPacket(new GameStateUpdatePacket(game.GetGameState()));
+            foreach (var currentDelegate in client.CurrentMatch.BroadcastGameUpdate.GetInvocationList())
+            {
+                //client.CurrentMatch.BroadcastGameUpdate = Action.RemoveAll(client.CurrentMatch.BroadcastGameUpdate, currentDelegate);
+            }
         }
     }
 }
