@@ -4,6 +4,13 @@ using CardGameTCPServer.Packets;
 
 namespace CardGameTCPServer.TCP
 {
+    public enum MatchState
+    {
+        Running,
+        WaitingForReconnect,
+        Finished
+    }
+
     public class Match
     {
         public int MatchId;
@@ -13,6 +20,8 @@ namespace CardGameTCPServer.TCP
 
         public Action<GamePacketTypes, Match, ClientConnection> BroadcastGameUpdate;
 
+        public MatchState State { get; private set; }
+
         private Game game;
         public Worker OwnerWorker { get; set; }
 
@@ -20,6 +29,8 @@ namespace CardGameTCPServer.TCP
 
         private bool running = true;
         private bool stateChanged = false;
+
+        private DateTime reconnectStartTime;
 
         public Match(int matchId, List<ClientConnection> clients)
         {
@@ -39,7 +50,7 @@ namespace CardGameTCPServer.TCP
             }
             game = new Game(playerIds);
 
-            running = true;
+            State = MatchState.Running;
         }
 
         public Game GetGame()
@@ -47,9 +58,36 @@ namespace CardGameTCPServer.TCP
             return game;
         }
 
+        public void EnterWaitingForReconnect()
+        {
+            State = MatchState.WaitingForReconnect;
+
+            reconnectStartTime = DateTime.UtcNow;
+        }
+
+        public void Finish()
+        {
+            State = MatchState.Finished;
+        }
+
+        public void Update()
+        {
+            foreach (var client in Clients)
+            {
+                if (client.ConnectionState ==
+                   ConnectionState.Disconnected)
+                {
+                    EnterWaitingForReconnect();
+                    return;
+                }
+            }
+
+            ProcessCommands();
+        }
+
         public void EnqueueCommand(IGameCommand command)
         {
-            if (!running) return;
+            if (State != MatchState.Running) return;
 
             gameCommands.Enqueue(command);
         }
@@ -69,9 +107,44 @@ namespace CardGameTCPServer.TCP
             }
         }
 
+        private bool AreAllPlayersConnected()
+        {
+            foreach (var client in Clients)
+            {
+                if (client.ConnectionState != ConnectionState.Connected)
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool ReconnectTimeoutExpired()
+        {
+            return (DateTime.UtcNow - reconnectStartTime).TotalSeconds > GameConfigs.RECONNECT_TIMEOUT;
+        }
+
+        private void ResumeMatch()
+        {
+            State = MatchState.Running;
+        }
+
+        public void ProcessReconnectLogic()
+        {
+            if (AreAllPlayersConnected())
+            {
+                ResumeMatch();
+                return;
+            }
+
+            if (ReconnectTimeoutExpired())
+            {
+                Finish();
+            }
+        }
+
         public void MatchCleanup()
         {
-            running = false;
+            
         }
     }
 }

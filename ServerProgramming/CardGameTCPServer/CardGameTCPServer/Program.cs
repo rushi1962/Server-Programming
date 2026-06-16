@@ -78,7 +78,7 @@ class Program
     {
         try
         {
-            while (client.ConnectionState == ConnectionState.Connected)
+            while (true)
             {
                 int packetTypeValue = await PacketReader.ReadInt32Async(client.Stream);
                 PacketType packetType = (PacketType)packetTypeValue;

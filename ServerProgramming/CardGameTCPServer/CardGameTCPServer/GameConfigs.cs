@@ -8,4 +8,5 @@ class GameConfigs
 {
     public static int NUMBER_OF_PLAYERS_IN_A_MATCH = 2;
     public static int NUMBER_OF_CARDS_FOR_EACH_PLAYER = 3;
+    public static double RECONNECT_TIMEOUT = 45.0;
 }

@@ -54,7 +54,19 @@
                 {
                     foreach (Match match in matches)
                     {
-                        match.ProcessCommands();
+                        switch (match.State)
+                        {
+                            case MatchState.Running:
+                                match.Update();
+                                break;
+
+                            case MatchState.WaitingForReconnect:
+                                match.ProcessReconnectLogic();
+                                break;
+
+                            case MatchState.Finished:
+                                break;
+                        }
                     }
                 }             
                 Thread.Sleep(50);
