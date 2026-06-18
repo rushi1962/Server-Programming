@@ -57,13 +57,15 @@ namespace CardGameTCPServer.GameLogic
                         Card attackCard = attackingPlayer.GetCards().Find(x => x.GetActionType() == GameActionTypes.GameAction_Attack);
                         player.ReceiveAttack(attackCard.GetAmount());
                         attackingPlayer.PayManaCost(attackCard.GetCost());
-                    }
 
-                    if(player.IsDead())
-                    {
-                        IsGameOver = true;
-                        GameWinnerID = attackingClient.ClientID;
-                    }
+                        //Check if game is over
+                        if (player.IsDead())
+                        {
+                            IsGameOver = true;
+                            GameWinnerID = attackingClient.ClientID;
+                            return;
+                        }
+                    }                    
                 }
 
                 AdvanceTurn();

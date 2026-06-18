@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Text.RegularExpressions;
 using CardGameTCPServer.GameLogic;
 using CardGameTCPServer.Packets;
 
@@ -19,6 +20,8 @@ namespace CardGameTCPServer.TCP
             new List<ClientConnection>();
 
         public Action<GamePacketTypes, Match, ClientConnection> BroadcastGameUpdate;
+        public Action<Match> MatchCleanup;
+        public Action<Match, ClientConnection> DeclareGame;
 
         public MatchState State { get; private set; }
 
@@ -27,10 +30,11 @@ namespace CardGameTCPServer.TCP
 
         private ConcurrentQueue<IGameCommand> gameCommands = new ConcurrentQueue<IGameCommand>();
 
-        private bool running = true;
         private bool stateChanged = false;
 
         private DateTime reconnectStartTime;
+
+        private bool cleanedUp = false;
 
         public Match(int matchId, List<ClientConnection> clients)
         {
@@ -60,6 +64,9 @@ namespace CardGameTCPServer.TCP
 
         public void EnterWaitingForReconnect()
         {
+            if (State == MatchState.WaitingForReconnect)
+                return;
+
             State = MatchState.WaitingForReconnect;
 
             reconnectStartTime = DateTime.UtcNow;
@@ -67,15 +74,17 @@ namespace CardGameTCPServer.TCP
 
         public void Finish()
         {
-            State = MatchState.Finished;
+            if (State == MatchState.Finished)
+                return;
+
+            State = MatchState.Finished;            
         }
 
         public void Update()
         {
             foreach (var client in Clients)
             {
-                if (client.ConnectionState ==
-                   ConnectionState.Disconnected)
+                if (client.ConnectionState == ConnectionState.Disconnected)
                 {
                     EnterWaitingForReconnect();
                     return;
@@ -138,13 +147,24 @@ namespace CardGameTCPServer.TCP
 
             if (ReconnectTimeoutExpired())
             {
+                DeclareGame?.Invoke(this, Clients.Find(x => x.ConnectionState == ConnectionState.Disconnected));
                 Finish();
             }
         }
 
-        public void MatchCleanup()
+        public void Cleanup()
         {
-            
+            if (cleanedUp) return;
+
+            foreach (ClientConnection client in Clients)
+            {
+                client.CurrentMatch = null;
+            }
+
+            OwnerWorker.RemoveMatch(this);
+
+            MatchCleanup?.Invoke(this);
+            cleanedUp = true;
         }
     }
 }

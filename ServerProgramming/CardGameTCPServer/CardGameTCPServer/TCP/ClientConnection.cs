@@ -40,8 +40,6 @@ namespace CardGameTCPServer.TCP
 
             Stream = tcpClient.GetStream();
 
-            Reader = new BinaryReader(Stream);
-
             ConnectionState = ConnectionState.Connected;
 
             LastRecievedPacketTime = DateTime.UtcNow;
@@ -84,40 +82,43 @@ namespace CardGameTCPServer.TCP
 
         async Task SendLoop()
         {
-            while (ConnectionState == ConnectionState.Connected)
+            while (true)
             {
-                if (reliablePackets.TryDequeue(out IOutgoingPacket packet))
+                if(ConnectionState == ConnectionState.Connected)
                 {
-                    try
+                    if (reliablePackets.TryDequeue(out IOutgoingPacket packet))
                     {
-                        await packet.WriteAsync(Stream);
+                        try
+                        {
+                            await packet.WriteAsync(Stream);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                            break;
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex);
-                        break;
-                    }
-                }
 
-                lock (statePacketLock) 
-                {
-                    StatePacketToSend = latestStatePacket;
-                    latestStatePacket = null;
-                }                    
-
-                if(StatePacketToSend != null)
-                {
-                    try
+                    lock (statePacketLock)
                     {
-                        await StatePacketToSend.WriteAsync(Stream);
+                        StatePacketToSend = latestStatePacket;
+                        latestStatePacket = null;
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex);
-                        break;
-                    }
-                }
 
+                    if (StatePacketToSend != null)
+                    {
+                        try
+                        {
+                            await StatePacketToSend.WriteAsync(Stream);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                            break;
+                        }
+                    }
+                }           
+                
                 await Task.Delay(1);
             }
         }

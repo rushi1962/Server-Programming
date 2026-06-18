@@ -102,20 +102,18 @@ class Program
         }
         catch
         {
-            if(client.CurrentMatch != null)
-            {
-                client.CurrentMatch.GetGame().DeclareGame(client);
-                BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
-                CleanupMatch(client.CurrentMatch);
-            }
+            client.ConnectionState = ConnectionState.Disconnected;
 
             Console.WriteLine($"Client left the server | ID: {client.ClientID}");
         }
 
         //Complete the disconnection process if client disconnection is detected
-        lock (clientsListLock)
+        if(client.CurrentMatch == null)
         {
-            clients.Remove(client);
+            lock (clientsListLock)
+            {
+                clients.Remove(client);
+            }
         }
         client.TcpClient.Close();
     }
@@ -135,13 +133,11 @@ class Program
                 TryCreateMatch();
                 break;
 
-            case SystemPacketTypes.LeaveGame:
-                if (client.CurrentMatch != null)
-                {
-                    client.CurrentMatch.GetGame().DeclareGame(client);
-                    BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, client.CurrentMatch);
-                    CleanupMatch(client.CurrentMatch);
-                }
+            case SystemPacketTypes.LeaveMatch:
+                //if (client.CurrentMatch != null)
+                //{
+                //    client.CurrentMatch.Finish();
+                //}
                 break;
 
             case SystemPacketTypes.HeartBeat:
@@ -212,6 +208,8 @@ class Program
         Match newMatch = new Match(nextMatchID, clientsToGoInMatch);
 
         newMatch.BroadcastGameUpdate += BroadcastGamePacket;
+        newMatch.MatchCleanup += CleanupMatch;
+        newMatch.DeclareGame += DeclareGame;
 
         lock (matchListLock)
         {
@@ -250,20 +248,32 @@ class Program
         }
     }
 
+    static void DeclareGame(Match match, ClientConnection requestingClient)
+    {
+        match.GetGame().DeclareGame(requestingClient);
+        BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, match);
+        match.DeclareGame -= DeclareGame;
+    }
+
     static void CleanupMatch(Match match)
     {
         foreach (ClientConnection client in match.Clients)
         {
-            client.CurrentMatch = null;
+            if (client != null && client.ConnectionState == ConnectionState.Disconnected) 
+            {
+                lock (clientsListLock)
+                {
+                    clients.Remove(client);
+                }                    
+            }
         }
-
-        match.MatchCleanup();
-        match.OwnerWorker.RemoveMatch(match);
-        match.BroadcastGameUpdate -= BroadcastGamePacket;
 
         lock (matchListLock)
         {
             matchList.Remove(match);
         }
+
+        match.BroadcastGameUpdate -= BroadcastGamePacket;
+        match.MatchCleanup -= CleanupMatch;
     }
 }

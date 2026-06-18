@@ -37,38 +37,30 @@
         {
             while (running)
             {
-                //ToDo
-                //List<Match> snapshot;
+                List<Match> snapshot;
 
-                //lock (matchesLock)
-                //{
-                //    snapshot = matches.ToList();
-                //}
-
-                //foreach (var match in snapshot)
-                //{
-                //    match.ProcessCommands();
-                //}
-
-                lock (matchesLock) 
+                lock (matchesLock)
                 {
-                    foreach (Match match in matches)
+                    snapshot = matches.ToList();
+                }
+
+                foreach (Match match in snapshot)
+                {
+                    switch (match.State)
                     {
-                        switch (match.State)
-                        {
-                            case MatchState.Running:
-                                match.Update();
-                                break;
+                        case MatchState.Running:
+                            match.Update();
+                            break;
 
-                            case MatchState.WaitingForReconnect:
-                                match.ProcessReconnectLogic();
-                                break;
+                        case MatchState.WaitingForReconnect:
+                            match.ProcessReconnectLogic();
+                            break;
 
-                            case MatchState.Finished:
-                                break;
-                        }
+                        case MatchState.Finished:
+                            match.Cleanup();
+                            break;
                     }
-                }             
+                }
                 Thread.Sleep(50);
             }
         }
