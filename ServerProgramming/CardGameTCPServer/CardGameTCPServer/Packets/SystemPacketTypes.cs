@@ -6,6 +6,8 @@
         ClientName = 2,
         ClientUUID = 3,
         LeaveMatch = 4,
-        HeartBeat = 5
+        HeartBeat = 5,
+        ReconnectionToken = 6,
+        ReconnectionSuccess = 7
     }
 }

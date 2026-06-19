@@ -10,10 +10,12 @@ namespace CardGameTCPServer.Packets
     public class ClientProfileDataPacket : IOutgoingPacket
     {
         public int ClientID { get; }
+        public string ReconnectToken { get; }
 
-        public ClientProfileDataPacket(int clientID)
+        public ClientProfileDataPacket(int clientID, string reconnectToken)
         {
             ClientID = clientID;
+            ReconnectToken = reconnectToken;
         }
 
         public async Task WriteAsync(NetworkStream stream)
@@ -32,6 +34,14 @@ namespace CardGameTCPServer.Packets
             await stream.WriteAsync(BitConverter.GetBytes((int)SystemPacketTypes.ClientName));
             await stream.WriteAsync(BitConverter.GetBytes(data.Length));
             await stream.WriteAsync(data);
+
+            //Send ReconnectionToken
+            byte[] tokenData = Encoding.UTF8.GetBytes(ReconnectToken);
+
+            await stream.WriteAsync(BitConverter.GetBytes((int)PacketType.SystemPacket));
+            await stream.WriteAsync(BitConverter.GetBytes((int)SystemPacketTypes.ReconnectionToken));
+            await stream.WriteAsync(BitConverter.GetBytes(tokenData.Length));
+            await stream.WriteAsync(tokenData);
         }
     }
 }

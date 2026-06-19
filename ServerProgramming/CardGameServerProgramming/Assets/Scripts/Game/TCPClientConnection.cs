@@ -8,6 +8,7 @@ using TCP;
 using Packets;
 using GameLogic;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
 public class TCPClientConnection : MonoBehaviour
@@ -20,10 +21,14 @@ public class TCPClientConnection : MonoBehaviour
 
     public Action<int> Event_ReceivedClientID;
     public Action<String> Event_ReceivedClientName;
+    public Action<String> Event_ReceivedClientReconnectionToken;
 
     public Action Event_GameStarted;
     public Action<GameState> Event_GameStateUpdated;
     public Action Event_Disconnected;
+    public Action Event_Reconnected;
+    public Action Event_ReconnectionAccepted;
+    public Action Event_ReconnectionFailed;
 
     #endregion
 
@@ -31,11 +36,13 @@ public class TCPClientConnection : MonoBehaviour
 
     ConcurrentQueue<int> pendingClientIDs = new ConcurrentQueue<int>();
     ConcurrentQueue<string> pendingClientNames = new ConcurrentQueue<string>();
+    ConcurrentQueue<string> pendingClientReconnectionToken = new ConcurrentQueue<string>();
 
     ConcurrentQueue<int> pendingGameStartedEvents = new ConcurrentQueue<int>();
 
     ConcurrentQueue<GameState> pendingStates = new ConcurrentQueue<GameState>();
     ConcurrentQueue<int> pendingGameDisconnectedEvents = new ConcurrentQueue<int>();
+    ConcurrentQueue<int> pendingGameReconnectedEvents = new ConcurrentQueue<int>();
 
     #endregion
 
@@ -46,6 +53,8 @@ public class TCPClientConnection : MonoBehaviour
     private BinaryWriter writer;
 
     private readonly object writerLock = new object();
+
+    private bool m_TryingReconnection = false;
 
     void Start()
     {
@@ -93,6 +102,11 @@ public class TCPClientConnection : MonoBehaviour
             Event_ReceivedClientID?.Invoke(clientID);
         }
 
+        while (pendingClientReconnectionToken.TryDequeue(out string clientReconnectionToken))
+        {
+            Event_ReceivedClientReconnectionToken?.Invoke(clientReconnectionToken);
+        }
+
         while (pendingClientNames.TryDequeue(out string clientName))
         {
             Event_ReceivedClientName?.Invoke(clientName);
@@ -111,6 +125,14 @@ public class TCPClientConnection : MonoBehaviour
         while (pendingGameDisconnectedEvents.TryDequeue(out int gameDisconnected))
         {
             Event_Disconnected?.Invoke();
+
+            if(!m_TryingReconnection) _ = ReconnectTask();
+        }
+
+        while (pendingGameReconnectedEvents.TryDequeue(out int gameDisconnected))
+        {
+            Event_ReconnectionAccepted?.Invoke();
+            m_TryingReconnection = false;
         }
     }
 
@@ -170,6 +192,18 @@ public class TCPClientConnection : MonoBehaviour
 
                 pendingClientNames.Enqueue(clientName);
                 break;
+
+            case SystemPacketTypes.ReconnectionToken:
+                messageLength = reader.ReadInt32();
+                byte[] tokenData = reader.ReadBytes(messageLength);
+                string reconnectionToken = Encoding.UTF8.GetString(tokenData);
+
+                pendingClientReconnectionToken.Enqueue(reconnectionToken);
+                break;
+
+            case SystemPacketTypes.ReconnectionSuccess:
+                pendingGameReconnectedEvents.Enqueue(0);
+                break;
         }
     }
 
@@ -206,6 +240,19 @@ public class TCPClientConnection : MonoBehaviour
         }
     }
 
+    public void SendReconnectionPacket(string playerReconnectionToken)
+    {
+        lock (writerLock)
+        {
+            writer.Write((int)PacketType.SystemPacket);
+            writer.Write((int)SystemPacketTypes.ReconnectionToken);
+
+            byte[] Data = Encoding.UTF8.GetBytes(playerReconnectionToken);
+            writer.Write(Data.Length);
+            writer.Write(Data);
+        }
+    }
+
     public void SendGameActionPacket(GameActionTypes actionType)
     {
         lock (writerLock)
@@ -216,9 +263,59 @@ public class TCPClientConnection : MonoBehaviour
         }
     }
 
+    async Task ReconnectTask()
+    {
+        m_TryingReconnection = true;
+
+        int attempts = 0;
+
+        while (attempts < 5)
+        {
+            attempts++;
+
+            bool connected = false;
+
+            connected = await TryReconnect();
+
+            if (connected)
+            {
+                Event_Reconnected?.Invoke();
+                return;
+            }
+            await Task.Delay(2000);
+        }
+
+        Event_ReconnectionFailed?.Invoke();
+        m_TryingReconnection = false;
+    }
+
+    async Task<bool> TryReconnect()
+    {
+        try
+        {
+            await m_TCPClient.ReconnectToServer();
+
+            NetworkStream stream = m_TCPClient.GetNetworkStream();
+
+            lock (writerLock)
+            {
+                writer = new BinaryWriter(stream);
+            }
+
+            receiveThread = new Thread(() => ReceiveMessages(stream));
+            receiveThread.IsBackground = true;
+            receiveThread.Start();
+
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     private void OnDestroy()
     {
         m_TCPClient.CloseConnection();
     }
-
 }

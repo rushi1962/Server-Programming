@@ -15,9 +15,9 @@ namespace CardGameTCPServer.TCP
     {
         //TCP
         public int ClientID;
+        public string ReconnectToken { get; }
         public TcpClient TcpClient;
         public NetworkStream Stream;
-        public BinaryReader Reader;
         public volatile ConnectionState ConnectionState;
 
         //Match
@@ -32,11 +32,15 @@ namespace CardGameTCPServer.TCP
         //Heartbeats
         public DateTime LastRecievedPacketTime { get; private set; }
 
+        public bool ConnectionTransferred;
+
         public ClientConnection(TcpClient tcpClient, int clientID)
         {
             TcpClient = tcpClient;
 
             ClientID = clientID;
+
+            ReconnectToken = Guid.NewGuid().ToString();
 
             Stream = tcpClient.GetStream();
 
@@ -44,7 +48,18 @@ namespace CardGameTCPServer.TCP
 
             LastRecievedPacketTime = DateTime.UtcNow;
 
+            ConnectionTransferred = false;
+
             _ = SendLoop();
+        }
+
+        public void Reconnect(TcpClient tcpClient)
+        {
+            TcpClient = tcpClient;
+            Stream = tcpClient.GetStream();
+            ConnectionState = ConnectionState.Connected;
+            LastRecievedPacketTime = DateTime.UtcNow;
+            _= SendLoop();
         }
 
         public void SetCurrentMatch(Match match)
@@ -84,41 +99,44 @@ namespace CardGameTCPServer.TCP
         {
             while (true)
             {
-                if(ConnectionState == ConnectionState.Connected)
+                if (ConnectionState != ConnectionState.Connected)
                 {
-                    if (reliablePackets.TryDequeue(out IOutgoingPacket packet))
-                    {
-                        try
-                        {
-                            await packet.WriteAsync(Stream);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                            break;
-                        }
-                    }
+                    await Task.Delay(100);
+                    continue;
+                }
 
-                    lock (statePacketLock)
+                if (reliablePackets.TryDequeue(out IOutgoingPacket packet))
+                {
+                    try
                     {
-                        StatePacketToSend = latestStatePacket;
-                        latestStatePacket = null;
+                        await packet.WriteAsync(Stream);
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                        break;
+                    }
+                }
 
-                    if (StatePacketToSend != null)
+                lock (statePacketLock)
+                {
+                    StatePacketToSend = latestStatePacket;
+                    latestStatePacket = null;
+                }
+
+                if (StatePacketToSend != null)
+                {
+                    try
                     {
-                        try
-                        {
-                            await StatePacketToSend.WriteAsync(Stream);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                            break;
-                        }
+                        await StatePacketToSend.WriteAsync(Stream);
                     }
-                }           
-                
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                        break;
+                    }
+                }
+
                 await Task.Delay(1);
             }
         }

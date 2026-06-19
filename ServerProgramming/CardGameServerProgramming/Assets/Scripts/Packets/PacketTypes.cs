@@ -12,7 +12,10 @@ namespace Packets
         MatchMakingRequested = 1,
         ClientName = 2,
         ClientUUID = 3,
-        LeaveGame = 4
+        LeaveMatch = 4,
+        HeartBeat = 5,
+        ReconnectionToken = 6,
+        ReconnectionSuccess = 7
     }
 
     public enum GamePacketTypes

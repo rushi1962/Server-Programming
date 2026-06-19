@@ -1,5 +1,6 @@
 using System;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 
 namespace TCP 
 {
@@ -33,6 +34,15 @@ namespace TCP
         public void CloseConnection()
         {
             client.Close();
+        }
+
+        public async Task ReconnectToServer()
+        {
+            client?.Close();
+
+            client = new TcpClient();
+
+            await client.ConnectAsync(IPAdress, port);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Net.Sockets;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
 using CardGameTCPServer.GameLogic;
@@ -47,7 +48,7 @@ class Program
             Console.WriteLine($"Client joined the server | ID : {client.ClientID}");
 
             //Send client ID to client
-            client.EnqueueReliableOutgoingPacket(new ClientProfileDataPacket(client.ClientID));
+            client.EnqueueReliableOutgoingPacket(new ClientProfileDataPacket(client.ClientID, client.ReconnectToken));
 
             //Create a separate thread for client
             _ = HandleClient(client);
@@ -78,7 +79,7 @@ class Program
     {
         try
         {
-            while (true)
+            while (!client.ConnectionTransferred)
             {
                 int packetTypeValue = await PacketReader.ReadInt32Async(client.Stream);
                 PacketType packetType = (PacketType)packetTypeValue;
@@ -107,6 +108,8 @@ class Program
             Console.WriteLine($"Client left the server | ID: {client.ClientID}");
         }
 
+        if (client.ConnectionTransferred) return;
+
         //Complete the disconnection process if client disconnection is detected
         if(client.CurrentMatch == null)
         {
@@ -134,14 +137,14 @@ class Program
                 break;
 
             case SystemPacketTypes.LeaveMatch:
-                //if (client.CurrentMatch != null)
-                //{
-                //    client.CurrentMatch.Finish();
-                //}
+                
                 break;
 
             case SystemPacketTypes.HeartBeat:
-                
+                break;
+
+            case SystemPacketTypes.ReconnectionToken:
+                await HandleReconnectionPacket(client);
                 break;
         }
     }
@@ -185,6 +188,50 @@ class Program
                 clientCurrentMatch.EnqueueCommand(new ManaBoostCommand(client, game));
                 break;
         }
+    }
+
+    static async Task HandleReconnectionPacket(ClientConnection client)
+    {
+        int messageLength = await PacketReader.ReadInt32Async(client.Stream);
+        byte[] tokenData = await PacketReader.ReadBytesAsync(client.Stream, messageLength);
+        string reconnectionToken = Encoding.UTF8.GetString(tokenData);
+        ClientConnection matchedClient = null;
+
+        lock (clientsListLock)
+        {
+            foreach (ClientConnection oldClient in clients)
+            {
+                if (oldClient != null &&
+                    oldClient.ConnectionState == ConnectionState.Disconnected && oldClient.ReconnectToken == reconnectionToken)
+                {
+
+                    matchedClient = oldClient;
+                    break;
+                }
+            }
+        }
+
+        if (matchedClient != null) 
+        {
+
+            client.ConnectionTransferred = true;
+
+            lock (clientsListLock)
+            {
+                clients.Remove(client);
+            }
+
+            matchedClient.Reconnect(client.TcpClient);
+            _ = HandleClient(matchedClient);
+
+            client.EnqueueReliableOutgoingPacket(new ReconnectionSuccessPacket());
+            if (matchedClient.CurrentMatch != null)
+            {
+                BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, matchedClient.CurrentMatch);
+            }
+        }
+        
+        
     }
 
     static void TryCreateMatch()

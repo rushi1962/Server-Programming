@@ -3,44 +3,48 @@
   "WorkspaceRootPath": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\tcpclientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\tcpclientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|e:\\github\\server-programming\\serverprogramming\\cardgameserverprogramming\\assets\\scripts\\game\\controllers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\controllers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\ui\\buttonpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\ui\\buttonpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Game\\UI\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\ui\\gamepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\ui\\gamepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\tcpclientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\tcpclientconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\packets\\packettypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\packets\\packettypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Packets\\PacketTypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Packets\\PacketTypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\tcp\\tcpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tcp\\tcpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\TCP\\TCPClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\TCP\\TCPClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\services\\heartbeatservicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\services\\heartbeatservicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\GamePanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Game\\UI\\GamePanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\ui\\loadingpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\ui\\loadingpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\CardButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Game\\UI\\CardButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\assets\\scripts\\game\\ui\\cardbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\ui\\cardbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\GameState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Game\\GameState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\ButtonPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Game\\UI\\ButtonPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\LoadingPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1B7DC4-1B64-52E5-A733-D32643DB2C0D}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Game\\UI\\LoadingPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,24 +54,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GameManager.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\Controllers\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\Controllers\\GameManager.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\Controllers\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\Controllers\\GameManager.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAYwGIAAAAAAAAA",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAmwGsAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-04T09:18:06.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "TCPClientConnection.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\TCPClientConnection.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\TCPClientConnection.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\TCPClientConnection.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Game\\TCPClientConnection.cs",
+              "ViewState": "AQIAAAcBAAAAAAAAAAAxwBkBAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T06:41:02.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GamePanel.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\GamePanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UI\\GamePanel.cs",
@@ -75,12 +92,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\UI\\GamePanel.cs",
               "ViewState": "AQIAAB8AAAAAAAAAAAAewCsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T06:19:20.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-03T06:19:20.488Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "CardButton.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\CardButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UI\\CardButton.cs",
@@ -92,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GameState.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\GameState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\GameState.cs",
@@ -104,58 +120,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "PacketTypes.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Packets\\PacketTypes.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Packets\\PacketTypes.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Packets\\PacketTypes.cs",
               "RelativeToolTip": "Assets\\Scripts\\Packets\\PacketTypes.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAA6wBQAAAAdAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-01T08:39:37.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TCPClientConnection.cs",
-              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\TCPClientConnection.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\TCPClientConnection.cs",
-              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\TCPClientConnection.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Game\\TCPClientConnection.cs",
-              "ViewState": "AQIAAK8AAAAAAAAAAAAUwLUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-01T06:41:02.344Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "TCPClient.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\TCP\\TCPClient.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TCP\\TCPClient.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\TCP\\TCPClient.cs",
               "RelativeToolTip": "Assets\\Scripts\\TCP\\TCPClient.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAJAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAswCwAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-01T06:39:52.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "UIManager.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UI\\UIManager.cs",
               "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\UIManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Game\\UI\\UIManager.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAA0wC4AAAA2AAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAIwDwAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T07:20:56.245Z"
+              "WhenOpened": "2026-06-04T07:20:56.245Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "HeartbeatServiceManager.cs",
+              "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Services\\HeartbeatServiceManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Services\\HeartbeatServiceManager.cs",
+              "ToolTip": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Services\\HeartbeatServiceManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Services\\HeartbeatServiceManager.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA5wBoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T11:36:11.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ButtonPanel.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\ButtonPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UI\\ButtonPanel.cs",
@@ -163,12 +179,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\UI\\ButtonPanel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T07:10:00.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T07:10:00.039Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "LoadingPanel.cs",
               "DocumentMoniker": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameServerProgramming\\Assets\\Scripts\\Game\\UI\\LoadingPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UI\\LoadingPanel.cs",

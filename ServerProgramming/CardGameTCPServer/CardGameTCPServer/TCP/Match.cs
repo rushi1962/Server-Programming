@@ -155,16 +155,16 @@ namespace CardGameTCPServer.TCP
         public void Cleanup()
         {
             if (cleanedUp) return;
+            cleanedUp = true;
 
             foreach (ClientConnection client in Clients)
             {
                 client.CurrentMatch = null;
             }
 
-            OwnerWorker.RemoveMatch(this);
-
             MatchCleanup?.Invoke(this);
-            cleanedUp = true;
+            OwnerWorker.RemoveMatch(this);
+            Clients.Clear();
         }
     }
 }

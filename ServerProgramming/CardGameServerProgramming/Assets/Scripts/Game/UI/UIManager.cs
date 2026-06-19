@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     public LoadingPanel loadingPanel;
     public ButtonPanel buttonPanel;
     public GamePanel gamePanel;
+    public GameObject ReconnectingPanel;
 
     private void ResetPanels()
     {
@@ -53,5 +54,10 @@ public class UIManager : MonoBehaviour
         ResetPanels();
 
         gamePanel.gameObject.SetActive(true);
+    }
+
+    public void SetReconnectingPanel(bool IsActive)
+    {
+        ReconnectingPanel.SetActive(IsActive);
     }
 }
