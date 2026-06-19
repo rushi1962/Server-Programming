@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CardGameTCPServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c0b104897c77a00134dcd43ce8b8d78393b20ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35149427cf1ca55c4302f31039a9524efc12d84a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CardGameTCPServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CardGameTCPServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

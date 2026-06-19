@@ -1,11 +1,16 @@
 ﻿using System.Net.Sockets;
-using System.Reflection.PortableExecutable;
 using System.Text;
-using System.Text.Json;
 using CardGameTCPServer.GameLogic;
 using CardGameTCPServer.Packets;
 using CardGameTCPServer.TCP;
 using CardGameTCPServer.Utilities;
+
+public enum ServerState
+{
+    Running = 1,
+    ShuttingDown = 2,
+    Shutdown = 3
+}
 
 class Program
 {
@@ -29,9 +34,15 @@ class Program
     static int nextMatchID = 1;
     static int nextWorkerIndex = 0;
 
+    static ServerState currentServerState = ServerState.Running;
+
+    static DateTime shutdownTime;
+
     static async Task Main(string[] args)
     {
         CreateWorkers();
+
+        _ = Task.Run(ServerConsoleLoop);
 
         TcpListener server = TCPServer.GetServer();
 
@@ -41,6 +52,15 @@ class Program
             TcpClient tcpClient = await server.AcceptTcpClientAsync();
 
             ClientConnection client = new ClientConnection(tcpClient, nextPlayerId++);
+
+            if (currentServerState != ServerState.Running)
+            {
+                client.EnqueueReliableOutgoingPacket(new ServerShutdownCountdownPackage
+                    ((int)(shutdownTime - DateTime.UtcNow).TotalSeconds));
+                client.TcpClient.Close();
+                continue;
+            }
+
             lock (clientsListLock)
             {
                 clients.Add(client);
@@ -129,7 +149,12 @@ class Program
         switch (systemPacketType) 
         {
             case SystemPacketTypes.MatchMakingRequested:
-                lock(matchMakingQueueLock)
+                if (currentServerState != ServerState.Running)
+                {
+                    return;
+                }
+
+                lock (matchMakingQueueLock)
                 {
                     matchMakingQueue.Enqueue(client);
                 }
@@ -322,5 +347,95 @@ class Program
 
         match.BroadcastGameUpdate -= BroadcastGamePacket;
         match.MatchCleanup -= CleanupMatch;
+    }
+
+    static async Task ServerConsoleLoop()
+    {
+        while (true)
+        {
+            string command = Console.ReadLine();
+
+            if (command == null)
+                continue;
+
+            if (command.StartsWith("shutdown"))
+            {
+                BeginShutdown(60); // 60 second countdown
+            }
+        }
+    }
+
+    private static void BeginShutdown(int seconds)
+    {
+        if (currentServerState != ServerState.Running)
+            return;
+
+        currentServerState = ServerState.ShuttingDown;
+
+        shutdownTime = DateTime.UtcNow.AddSeconds(seconds);
+
+        Console.WriteLine($"Server shutdown in {seconds} seconds");
+
+        BroadcastShutdownPacket(seconds);
+
+        _ = Task.Run(() => ShutdownCountdown(seconds));
+    }
+
+    static async Task ShutdownCountdown(int seconds)
+    {
+        while (seconds > 0)
+        {
+            await Task.Delay(1000);
+
+            seconds--;
+
+            if (seconds == 30 ||
+               seconds == 10 ||
+               seconds <= 5)
+            {
+                BroadcastShutdownPacket(seconds);
+            }
+        }
+
+        PerformShutdown();
+    }
+
+    private static void PerformShutdown()
+    {
+        lock (matchListLock)
+        {
+            foreach (Match match in matchList)
+            {
+                match.GetGame().DrawGame();
+                BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, match);
+            }
+
+            matchList.Clear();
+        }
+
+        lock (clients)
+        {
+            foreach(ClientConnection client in clients)
+            {
+                client.EnqueueReliableOutgoingPacket(new ServerShutdownPackage());
+                client.TcpClient.Close();
+            }
+
+            clients.Clear();
+        }
+
+        TCPServer.GetServer().Stop();
+        Environment.Exit(0);
+    }
+
+    private static void BroadcastShutdownPacket(int seconds)
+    {
+        lock (clientsListLock)
+        {
+            foreach (var client in clients) 
+            {
+                client.EnqueueReliableOutgoingPacket(new ServerShutdownCountdownPackage(seconds));
+            }
+        }
     }
 }

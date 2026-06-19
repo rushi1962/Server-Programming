@@ -15,7 +15,9 @@ namespace Packets
         LeaveMatch = 4,
         HeartBeat = 5,
         ReconnectionToken = 6,
-        ReconnectionSuccess = 7
+        ReconnectionSuccess = 7,
+        ServerShutdownCountdownStarted = 8,
+        ServerShutdown = 9
     }
 
     public enum GamePacketTypes

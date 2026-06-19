@@ -204,6 +204,14 @@ public class TCPClientConnection : MonoBehaviour
             case SystemPacketTypes.ReconnectionSuccess:
                 pendingGameReconnectedEvents.Enqueue(0);
                 break;
+
+            case SystemPacketTypes.ServerShutdownCountdownStarted:
+                //Show client countdown
+                break;
+
+            case SystemPacketTypes.ServerShutdown:
+                Application.Quit();
+                break;
         }
     }
 

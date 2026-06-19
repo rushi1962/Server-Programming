@@ -142,7 +142,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            string matchResultMessage = state.GameWinnerID == m_PlayerID ? "You won!" : "You lost!";
+            string matchResultMessage = state.GameWinnerID == 0 ? "It was a draw!"
+                : (state.GameWinnerID == m_PlayerID ? "You won!" : "You lost!");
             m_UIManager.SetMatchResultPanel(matchResultMessage);
             m_TCPClientConnection.Event_GameStateUpdated -= OnGameStateUpdated;
             m_UIManager.gamePanel.OnUseCardButtonClickedEvent -= SendCardAction;

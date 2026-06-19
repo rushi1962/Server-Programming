@@ -120,6 +120,14 @@ namespace CardGameTCPServer.GameLogic
             }
         }
 
+        public void DrawGame()
+        {
+            if (!IsGameOver)
+            {
+                IsGameOver = true;
+            }
+        }
+
         public GameState GetGameState()
         {
             GameState gameState = new GameState();
