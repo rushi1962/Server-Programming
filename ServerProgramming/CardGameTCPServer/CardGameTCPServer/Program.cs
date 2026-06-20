@@ -1,7 +1,9 @@
 ﻿using System.Net.Sockets;
 using System.Text;
+using CardGameTCPServer;
 using CardGameTCPServer.GameLogic;
 using CardGameTCPServer.Packets;
+using CardGameTCPServer.Services;
 using CardGameTCPServer.TCP;
 using CardGameTCPServer.Utilities;
 
@@ -42,13 +44,13 @@ class Program
     {
         CreateWorkers();
 
-        _ = Task.Run(ServerConsoleLoop);
+        _ = Task.Run(ConsoleCommandService.Run);
 
         TcpListener server = TCPServer.GetServer();
 
         while (true)
         {
-            Console.WriteLine("Waiting for client...");
+            Logger.Info("Waiting for client...");
             TcpClient tcpClient = await server.AcceptTcpClientAsync();
 
             ClientConnection client = new ClientConnection(tcpClient, nextPlayerId++);
@@ -65,7 +67,7 @@ class Program
             {
                 clients.Add(client);
             }
-            Console.WriteLine($"Client joined the server | ID : {client.ClientID}");
+            Logger.Info($"Client joined the server | ID : {client.ClientID}");
 
             //Send client ID to client
             client.EnqueueReliableOutgoingPacket(new ClientProfileDataPacket(client.ClientID, client.ReconnectToken));
@@ -125,7 +127,7 @@ class Program
         {
             client.ConnectionState = ConnectionState.Disconnected;
 
-            Console.WriteLine($"Client left the server | ID: {client.ClientID}");
+            Logger.Warning($"Client left the server | ID: {client.ClientID}");
         }
 
         if (client.ConnectionTransferred) return;
@@ -365,7 +367,36 @@ class Program
         }
     }
 
-    private static void BeginShutdown(int seconds)
+    internal static void ShowHelp()
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static void ShowStatus()
+    {
+        lock (clientsListLock)
+        {
+            //Write clients count
+            Logger.Info($"Total number of clients on server: {clients.Count}");
+        }
+
+        lock (matchMakingQueueLock)
+        {
+            //Write matchmaking queue count
+            Logger.Info($"Total number of clients in matchmaking queue: {matchMakingQueue.Count}");
+        }
+
+        lock (matchListLock)
+        {
+            //Write matches count
+            Logger.Info($"Total number of ongoing matches: {matchList.Count}");
+        }
+
+        //Write worker thread count
+        Logger.Info($"Total number of worker threads: {workers.Count}");
+    }
+
+    public static void BeginShutdown(int seconds)
     {
         if (currentServerState != ServerState.Running)
             return;
@@ -374,7 +405,7 @@ class Program
 
         shutdownTime = DateTime.UtcNow.AddSeconds(seconds);
 
-        Console.WriteLine($"Server shutdown in {seconds} seconds");
+        Logger.Warning($"Server shutdown in {seconds} seconds");
 
         BroadcastShutdownPacket(seconds);
 
