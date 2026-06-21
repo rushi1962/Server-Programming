@@ -1,0 +1,5 @@
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Release\net8.0\publish\CardGameTCPServer.exe
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Release\net8.0\publish\CardGameTCPServer.dll
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Release\net8.0\publish\CardGameTCPServer.deps.json
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Release\net8.0\publish\CardGameTCPServer.runtimeconfig.json
+E:\GitHub\Server-Programming\ServerProgramming\CardGameTCPServer\CardGameTCPServer\bin\Release\net8.0\publish\CardGameTCPServer.pdb

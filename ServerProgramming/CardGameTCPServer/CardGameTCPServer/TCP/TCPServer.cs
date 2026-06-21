@@ -7,13 +7,12 @@ namespace CardGameTCPServer.TCP
     {
         static TcpListener server;
         static IPAddress iPAddress = IPAddress.Any;
-        static int port = 7777;
 
         static public TcpListener GetServer()
         {
             if(server == null)
             {
-                server = new TcpListener(iPAddress, port);
+                server = new TcpListener(iPAddress, ConfigManager.Config.Port);
                 server.Start();
             }
 

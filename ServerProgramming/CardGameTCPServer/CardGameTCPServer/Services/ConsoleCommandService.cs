@@ -23,7 +23,9 @@ namespace CardGameTCPServer.Services
 
         private static void ProcessCommand(string command)
         {
-            switch (command.ToLower())
+            string[] parts = command.Split(' ');
+
+            switch (parts[0].ToLower())
             {
                 case "help":
                     Program.ShowHelp();
@@ -34,10 +36,11 @@ namespace CardGameTCPServer.Services
                     break;
 
                 case "shutdown":
-                    string[] parts = command.Split(' ');
-
-                    if (parts.Length == 2 &&
-                       int.TryParse(parts[1], out int seconds))
+                    if (parts.Length == 1)
+                    {
+                        Program.BeginShutdown(60);
+                    }
+                    else if (parts.Length == 2 && int.TryParse(parts[1], out int seconds))
                     {
                         Program.BeginShutdown(seconds);
                     }

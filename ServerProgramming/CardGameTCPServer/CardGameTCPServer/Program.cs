@@ -42,6 +42,8 @@ class Program
 
     static async Task Main(string[] args)
     {
+        ConfigManager.Load();
+
         CreateWorkers();
 
         _ = Task.Run(ConsoleCommandService.Run);
@@ -79,7 +81,7 @@ class Program
 
     static void CreateWorkers()
     {
-        int workerCount = Environment.ProcessorCount;
+        int workerCount = ConfigManager.Config.WorkerCount > 0 ? ConfigManager.Config.WorkerCount : Environment.ProcessorCount;
 
         for (int i = 0; i < workerCount; i++)
         {

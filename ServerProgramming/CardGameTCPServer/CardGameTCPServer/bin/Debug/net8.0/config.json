@@ -1,0 +1,8 @@
+{
+  "Port": 7777,
+  "DisconnectTimeoutSeconds": 15,
+  "LaggingTimeoutSeconds": 5,
+  "ShutdownCountdownSeconds": 60,
+  "WorkerCount": 0,
+  "LogDirectory": "Logs"
+}

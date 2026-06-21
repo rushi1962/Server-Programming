@@ -6,7 +6,7 @@ namespace TCP
 {
     public class TCPClient
     {
-        private string IPAdress = "127.0.0.1";
+        private string IPAdress = "192.168.1.3";
         private int port = 7777;
         TcpClient client;
 

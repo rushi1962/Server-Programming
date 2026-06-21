@@ -42,11 +42,11 @@ namespace CardGameTCPServer.Services
                 {
                     int elapsedSeconds = (int)(DateTime.UtcNow - client.LastRecievedPacketTime).TotalSeconds;
 
-                    if (elapsedSeconds >= NetworkConfig.DISCONNECT_TIMEOUT_SECONDS)
+                    if (elapsedSeconds >= ConfigManager.Config.DisconnectTimeoutSeconds)
                     {
                         client.ConnectionState = ConnectionState.Disconnected;
                     }
-                    else if (elapsedSeconds >= NetworkConfig.LAGGING_TIMEOUT_SECONDS)
+                    else if (elapsedSeconds >= ConfigManager.Config.LaggingTimeoutSeconds)
                     {
                         client.ConnectionState = ConnectionState.Lagging;
                     }
