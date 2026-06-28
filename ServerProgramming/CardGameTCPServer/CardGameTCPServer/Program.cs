@@ -30,6 +30,7 @@ class Program
     static readonly object clientsListLock = new object();
     static readonly object matchMakingQueueLock = new object();
     static readonly object matchListLock = new object();
+    static readonly object accountDictinaryLock = new object();
     #endregion
 
     static int nextPlayerId = 1;
@@ -175,6 +176,14 @@ class Program
             case SystemPacketTypes.ReconnectionToken:
                 await HandleReconnectionPacket(client);
                 break;
+
+            case SystemPacketTypes.LoginWithAccountID:
+                await HandleLoginPacket(client, false);
+                break;
+
+            case SystemPacketTypes.LoginGuest:
+                await HandleLoginPacket(client, true);
+                break;
         }
     }
 
@@ -258,9 +267,37 @@ class Program
             {
                 BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, matchedClient.CurrentMatch);
             }
+        }      
+    }
+
+    static async Task HandleLoginPacket(ClientConnection client, bool isGuestLogin)
+    {
+        bool accountFoundOrCreated = false;
+        PlayerAccount account;
+        int accountID;
+        if (isGuestLogin) 
+        {
+            AccountService.Instance.CreateGuestAccount(out account);
+            accountFoundOrCreated = true;
+            accountID = account.AccountID;
+        }
+        else
+        {
+            accountID = await PacketReader.ReadInt32Async(client.Stream);
+            accountFoundOrCreated = AccountService.Instance.GetAccount(accountID, out account);
         }
         
-        
+
+        if (accountFoundOrCreated)
+        {
+            client.SetupPlayerAccount(account);
+            client.EnqueueReliableOutgoingPacket(new LoginSuccededPacket(accountID));
+            Logger.Error($"Login succeeded | AccountID :{accountID}");
+        }
+        {
+            client.EnqueueReliableOutgoingPacket(new LoginFailedPacket("Login failed reason"));
+            Logger.Error($"Login failed | AccountID :{accountID}");
+        }
     }
 
     static void TryCreateMatch()

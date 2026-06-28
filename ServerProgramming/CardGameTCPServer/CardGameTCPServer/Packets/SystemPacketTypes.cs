@@ -10,6 +10,10 @@
         ReconnectionToken = 6,
         ReconnectionSuccess = 7,
         ServerShutdownCountdownStarted = 8,
-        ServerShutdown = 9
+        ServerShutdown = 9,
+        LoginGuest = 10,
+        LoginWithAccountID = 11,
+        LoginSuccess = 12,
+        LoginFailed = 13,
     }
 }

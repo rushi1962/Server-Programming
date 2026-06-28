@@ -15,6 +15,9 @@ namespace CardGameTCPServer.TCP
     {
         //TCP
         public int ClientID;
+
+        public PlayerAccount Account;
+
         public string ReconnectToken { get; }
         public TcpClient TcpClient;
         public NetworkStream Stream;
@@ -60,6 +63,11 @@ namespace CardGameTCPServer.TCP
             ConnectionState = ConnectionState.Connected;
             LastRecievedPacketTime = DateTime.UtcNow;
             _= SendLoop();
+        }
+
+        public void SetupPlayerAccount(PlayerAccount account)
+        {
+            Account = account;
         }
 
         public void SetCurrentMatch(Match match)
