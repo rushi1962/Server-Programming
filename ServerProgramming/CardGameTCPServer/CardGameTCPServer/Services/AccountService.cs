@@ -16,9 +16,14 @@ namespace CardGameTCPServer.Services
 
         private AccountService() 
         {
-            accounts = new Dictionary<int, PlayerAccount>();
             accountLock = new object();
             nextAccountID = 1;
+        }
+
+        public void Initialize()
+        {
+            DatabaseService.Instance.Initialize();
+            accounts = DatabaseService.Instance.LoadAccounts();
         }
 
         public void CreateGuestAccount(out PlayerAccount account)
@@ -32,7 +37,10 @@ namespace CardGameTCPServer.Services
             {
                 accounts.Add(accountID, account);
             }
+
+            DatabaseService.Instance.InsertAccount(account);
         }
+
         public bool GetAccount(int accountID, out PlayerAccount account)
         {
             account = null;

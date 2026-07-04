@@ -45,6 +45,8 @@ class Program
     {
         ConfigManager.Load();
 
+        AccountService.Instance.Initialize();
+
         CreateWorkers();
 
         _ = Task.Run(ConsoleCommandService.Run);
