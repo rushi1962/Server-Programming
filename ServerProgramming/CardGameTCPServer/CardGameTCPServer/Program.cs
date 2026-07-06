@@ -1,6 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using CardGameTCPServer;
+using CardGameTCPServer.Data;
 using CardGameTCPServer.GameLogic;
 using CardGameTCPServer.Packets;
 using CardGameTCPServer.Services;
@@ -45,6 +46,7 @@ class Program
     {
         ConfigManager.Load();
 
+        DatabaseService.Instance.Initialize();
         AccountService.Instance.Initialize();
 
         CreateWorkers();
@@ -353,7 +355,34 @@ class Program
             switch (gamePacketType)
             {
                 case GamePacketTypes.GameStateUpdatePacket:
-                    client.PushLatestGameState(new GameStateUpdatePacket(match.GetGame().GetGameState()));
+
+                    GameState state = match.GetGame().GetGameState();
+                    client.PushLatestGameState(new GameStateUpdatePacket(state));
+
+                    if (state.IsGameOver)
+                    {
+                        #region Save data to database
+
+                        MatchResultService.Instance.SaveMatchResult(match.MatchId, state);
+
+                        if (state.GameWinnerID == state.PlayerState_1.PlayerID)
+                        {
+                            PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_1.PlayerID);
+                            PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_2.PlayerID);
+                        }
+                        else if (state.GameWinnerID == state.PlayerState_2.PlayerID)
+                        {
+                            PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_2.PlayerID);
+                            PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_1.PlayerID);
+                        }
+                        else
+                        {
+                            PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_1.PlayerID);
+                            PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_2.PlayerID);
+                        }
+
+                        #endregion
+                    }
                     break;
 
                 case GamePacketTypes.GameStarted:

@@ -22,7 +22,6 @@ namespace CardGameTCPServer.Services
 
         public void Initialize()
         {
-            DatabaseService.Instance.Initialize();
             accounts = DatabaseService.Instance.LoadAccounts();
         }
 
@@ -57,10 +56,6 @@ namespace CardGameTCPServer.Services
                     return false;
                 }
             }
-        }
-        public void SaveAccount()
-        {
-
         }
     }
 }
