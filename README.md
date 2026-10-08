@@ -376,6 +376,13 @@ This project is primarily a **learning project focused on server programming, ne
 
 ---
 
+## Running the server (Linux)
+
+    cd ServerProgramming/CardGameTCPServer/CardGameTCPServer
+    dotnet run
+
+Listens on TCP port 7777. Open it in the firewall with `sudo ufw allow 7777/tcp`.
+
 ## 📄 License
 
 This project is available for learning and experimentation.
