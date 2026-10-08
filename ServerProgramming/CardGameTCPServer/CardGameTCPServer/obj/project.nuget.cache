@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "40P4zvUCOsc=",
+  "dgSpecHash": "mJMQ4j0sTjT/7jSP5krBqHvIBvDvnnSgh7lgEjyqyC1YMwUkACCFt1xXi2qoUEO7Dqqe/e4G/fhIpet2+bbwVw==",
   "success": true,
-  "projectFilePath": "E:\\GitHub\\Server-Programming\\ServerProgramming\\CardGameTCPServer\\CardGameTCPServer\\CardGameTCPServer.csproj",
+  "projectFilePath": "/home/ubuntu/Server-Programming/ServerProgramming/CardGameTCPServer/CardGameTCPServer/CardGameTCPServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\rushi\\.nuget\\packages\\microsoft.data.sqlite\\10.0.9\\microsoft.data.sqlite.10.0.9.nupkg.sha512",
-    "C:\\Users\\rushi\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.9\\microsoft.data.sqlite.core.10.0.9.nupkg.sha512",
-    "C:\\Users\\rushi\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.11\\sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
-    "C:\\Users\\rushi\\.nuget\\packages\\sqlitepclraw.core\\2.1.11\\sqlitepclraw.core.2.1.11.nupkg.sha512",
-    "C:\\Users\\rushi\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.11\\sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
-    "C:\\Users\\rushi\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.11\\sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
-    "C:\\Users\\rushi\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "/home/ubuntu/.nuget/packages/microsoft.data.sqlite/10.0.9/microsoft.data.sqlite.10.0.9.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/microsoft.data.sqlite.core/10.0.9/microsoft.data.sqlite.core.10.0.9.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.11/sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/sqlitepclraw.core/2.1.11/sqlitepclraw.core.2.1.11.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.11/sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.11/sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }
