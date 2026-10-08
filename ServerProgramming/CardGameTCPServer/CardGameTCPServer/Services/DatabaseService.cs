@@ -44,7 +44,7 @@ namespace CardGameTCPServer.Services
             #region MatchList
             createTableQuery =
                                         @"
-                                        CREATE TABLE MatchResults
+                                        CREATE TABLE IF NOT EXISTS MatchResults
                                         (
                                             MatchID INTEGER PRIMARY KEY,
                                             Player1ID INTEGER NOT NULL,
@@ -63,7 +63,7 @@ namespace CardGameTCPServer.Services
             #region Player statistics
             createTableQuery =
                                         @"
-                                        CREATE TABLE PlayerStats
+                                        CREATE TABLE IF NOT EXISTS PlayerStats
                                         (
                                             PlayerID INTEGER PRIMARY KEY,
                                             Wins INTEGER NOT NULL,
