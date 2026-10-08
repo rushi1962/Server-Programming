@@ -130,8 +130,9 @@ class Program
                 client.UpdateHeartbeat();
             }
         }
-        catch
+        catch (Exception ex)
         {
+            Logger.Warning($"Client {client.ClientID} error: {ex.Message}");
             client.ConnectionState = ConnectionState.Disconnected;
 
             Logger.Warning($"Client left the server | ID: {client.ClientID}");
