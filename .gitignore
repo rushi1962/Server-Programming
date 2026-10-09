@@ -1,0 +1,18 @@
+# .NET build output
+bin/
+obj/
+
+# IDE caches
+.vs/
+*.suo
+*.user
+
+# Server runtime data
+*.db
+*.log
+
+# Unity generated folders
+Library/
+Temp/
+Logs/
+UserSettings/
