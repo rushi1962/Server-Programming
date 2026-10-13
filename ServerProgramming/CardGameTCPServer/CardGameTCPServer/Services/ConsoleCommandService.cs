@@ -12,7 +12,11 @@ namespace CardGameTCPServer.Services
         {
             while (true)
             {
-                string command = Console.ReadLine();
+                string? command = Console.ReadLine();
+
+                // Input closed (e.g. running as a service with stdin = /dev/null): stop instead of spinning
+                if (command == null)
+                    return;
 
                 if (string.IsNullOrWhiteSpace(command))
                     continue;
