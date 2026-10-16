@@ -1,0 +1,18 @@
+services:
+  cardgame:
+    build: .                          # build from the Dockerfile in this folder
+    image: cardgame-server:compose
+    ports:
+      - "7777:7777"
+    volumes:
+      - cardgame-data:/data           # the named volume from Lesson 5
+    restart: unless-stopped           # like Restart=always, but respects a manual stop
+    healthcheck:                      # "running" is not "healthy": actually try the port
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/localhost/7777"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  cardgame-data:
+    name: cardgame-data               # reuse the existing volume (keeps your data)
