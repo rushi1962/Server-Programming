@@ -46,19 +46,26 @@
 
                 foreach (Match match in snapshot)
                 {
-                    switch (match.State)
+                    try
                     {
-                        case MatchState.Running:
-                            match.Update();
-                            break;
+                        switch (match.State)
+                        {
+                            case MatchState.Running:
+                                match.Update();
+                                break;
 
-                        case MatchState.WaitingForReconnect:
-                            match.ProcessReconnectLogic();
-                            break;
+                            case MatchState.WaitingForReconnect:
+                                match.ProcessReconnectLogic();
+                                break;
 
-                        case MatchState.Finished:
-                            match.Cleanup();
-                            break;
+                            case MatchState.Finished:
+                                match.Cleanup();
+                                break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Error($"Match {match.MatchId} failed: {ex}");
                     }
                 }
                 Thread.Sleep(50);
