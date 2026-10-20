@@ -23,6 +23,7 @@ namespace CardGameTCPServer.Services
         public void Initialize()
         {
             accounts = DatabaseService.Instance.LoadAccounts();
+            nextAccountID = accounts.Count == 0 ? 1 : accounts.Keys.Max() + 1;
         }
 
         public void CreateGuestAccount(out PlayerAccount account)
@@ -31,6 +32,7 @@ namespace CardGameTCPServer.Services
 
             account = new PlayerAccount();
             account.AccountID = accountID;
+            account.DisplayName = $"Guest{accountID}";
 
             lock (accountLock)
             {
