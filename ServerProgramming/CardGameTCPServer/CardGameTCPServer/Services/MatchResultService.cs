@@ -16,7 +16,7 @@ namespace CardGameTCPServer.Services
         public static MatchResultService Instance { get { return instance; } }
 
         public Dictionary<int, MatchData> matchesResults;
-        private readonly object matchesResultsLock;
+        private readonly object matchesResultsLock = new object();
 
         private MatchResultService()
         {

@@ -15,7 +15,7 @@ namespace CardGameTCPServer.Services
         public static PlayerStatsService Instance { get { return instance; } }
 
         public Dictionary<int, PlayerStatsData> playerStats;
-        private readonly object playerStatsLock;
+        private readonly object playerStatsLock = new object();
 
         private PlayerStatsService()
         {

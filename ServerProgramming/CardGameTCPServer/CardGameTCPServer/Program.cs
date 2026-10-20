@@ -48,6 +48,11 @@ class Program
 
         DatabaseService.Instance.Initialize();
         AccountService.Instance.Initialize();
+        MatchResultService.Instance.Initialize();
+        PlayerStatsService.Instance.Initialize();
+
+        var savedMatches = MatchResultService.Instance.matchesResults;
+        nextMatchID = savedMatches.Count == 0 ? 1 : savedMatches.Keys.Max() + 1;
 
         CreateWorkers();
 
@@ -299,6 +304,7 @@ class Program
             client.EnqueueReliableOutgoingPacket(new LoginSuccededPacket(accountID));
             Logger.Error($"Login succeeded | AccountID :{accountID}");
         }
+        else
         {
             client.EnqueueReliableOutgoingPacket(new LoginFailedPacket("Login failed reason"));
             Logger.Error($"Login failed | AccountID :{accountID}");
@@ -323,7 +329,7 @@ class Program
         }
 
         //Create match
-        Match newMatch = new Match(nextMatchID, clientsToGoInMatch);
+        Match newMatch = new Match(nextMatchID++, clientsToGoInMatch);
 
         newMatch.BroadcastGameUpdate += BroadcastGamePacket;
         newMatch.MatchCleanup += CleanupMatch;
