@@ -365,36 +365,40 @@ class Program
 
                     GameState state = match.GetGame().GetGameState();
                     client.PushLatestGameState(new GameStateUpdatePacket(state));
-
-                    if (state.IsGameOver)
-                    {
-                        #region Save data to database
-
-                        MatchResultService.Instance.SaveMatchResult(match.MatchId, state);
-
-                        if (state.GameWinnerID == state.PlayerState_1.PlayerID)
-                        {
-                            PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_1.PlayerID);
-                            PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_2.PlayerID);
-                        }
-                        else if (state.GameWinnerID == state.PlayerState_2.PlayerID)
-                        {
-                            PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_2.PlayerID);
-                            PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_1.PlayerID);
-                        }
-                        else
-                        {
-                            PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_1.PlayerID);
-                            PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_2.PlayerID);
-                        }
-
-                        #endregion
-                    }
                     break;
 
                 case GamePacketTypes.GameStarted:
                     client.EnqueueReliableOutgoingPacket(new GameStartedPacket());
                     break;
+            }
+        }
+
+        if (gamePacketType == GamePacketTypes.GameStateUpdatePacket)
+        {
+            GameState state = match.GetGame().GetGameState();
+            if (state.IsGameOver)
+            {
+                #region Save data to database
+
+                MatchResultService.Instance.SaveMatchResult(match.MatchId, state);
+
+                if (state.GameWinnerID == state.PlayerState_1.PlayerID)
+                {
+                    PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_1.PlayerID);
+                    PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_2.PlayerID);
+                }
+                else if (state.GameWinnerID == state.PlayerState_2.PlayerID)
+                {
+                    PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_2.PlayerID);
+                    PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_1.PlayerID);
+                }
+                else
+                {
+                    PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_1.PlayerID);
+                    PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_2.PlayerID);
+                }
+
+                #endregion
             }
         }
     }
