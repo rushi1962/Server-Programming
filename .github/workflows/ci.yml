@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore
 
-  smoke-test:
+    smoke-test:
     needs: build              # only run if the build passed (fail fast)
     runs-on: ubuntu-latest
     timeout-minutes: 10       # a hung bot must not burn 6 hours of minutes
@@ -42,18 +42,25 @@ jobs:
       - name: Build the Docker image
         run: docker build -t cardgame-server:ci "$PROJECT_DIR"
 
+      # Same healthcheck as production: probe the port from INSIDE the container,
+      # so docker-proxy can't answer for a server that isn't listening yet.
       - name: Start the server
-        run: docker run -d --name cardgame-test -p 7777:7777 cardgame-server:ci
+        run: |
+          docker run -d --name cardgame-test -p 7777:7777 \
+            --health-cmd 'bash -c "echo > /dev/tcp/localhost/7777"' \
+            --health-interval 2s --health-timeout 3s --health-retries 3 \
+            cardgame-server:ci
 
-      - name: Wait for port 7777
+      - name: Wait until healthy
         run: |
           for i in $(seq 1 30); do
-            if bash -c "echo > /dev/tcp/localhost/7777" 2>/dev/null; then
-              echo "Server is up after ${i}s"; exit 0
+            status=$(docker inspect -f '{{.State.Health.Status}}' cardgame-test)
+            if [ "$status" = "healthy" ]; then
+              echo "Server is healthy after ${i}s"; exit 0
             fi
             sleep 1
           done
-          echo "Server did not open port 7777 within 30s"; exit 1
+          echo "Server not healthy within 30s (last status: $status)"; exit 1
 
       - name: Smoke test (4 bots)
         run: python3 tests/cardgame_bot.py localhost --port 7777 --bots 4
@@ -61,15 +68,16 @@ jobs:
       - name: Restart the server
         run: docker restart cardgame-test
 
-      - name: Wait for port 7777 after restart
+      - name: Wait until healthy after restart
         run: |
           for i in $(seq 1 30); do
-            if bash -c "echo > /dev/tcp/localhost/7777" 2>/dev/null; then
-              echo "Server is up after ${i}s"; exit 0
+            status=$(docker inspect -f '{{.State.Health.Status}}' cardgame-test)
+            if [ "$status" = "healthy" ]; then
+              echo "Server is healthy after ${i}s"; exit 0
             fi
             sleep 1
           done
-          echo "Server did not open port 7777 within 30s"; exit 1
+          echo "Server not healthy within 30s (last status: $status)"; exit 1
 
       - name: Smoke test after restart (2 bots)
         run: python3 tests/cardgame_bot.py localhost --port 7777 --bots 2
