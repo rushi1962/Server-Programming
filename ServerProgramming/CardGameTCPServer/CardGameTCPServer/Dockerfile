@@ -1,5 +1,5 @@
-# ---------- Stage 1: build (SDK: compiler, NuGet) ----------
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Build natively on the CI machine's CPU; .NET IL runs on any CPU anyway
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Dependencies first: this layer stays cached until the .csproj changes
