@@ -26,7 +26,6 @@ services:
     depends_on:
       cardgame:
         condition: service_healthy    # don't start until the game server is healthy
-        restart: true                 # restart nginx whenever cardgame is replaced
     restart: unless-stopped
 
 volumes:

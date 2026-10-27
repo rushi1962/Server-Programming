@@ -15,6 +15,12 @@ echo "CARDGAME_VERSION=$VERSION" > .env
 docker compose pull
 # --wait: return only when every service is healthy; fail if one isn't
 docker compose up -d --wait --wait-timeout 120
+
+# nginx.conf is a bind-mounted file, so Compose can't see changes to it.
+# Check it, then reload gracefully (open player connections stay up).
+docker compose exec -T proxy nginx -t
+docker compose exec -T proxy nginx -s reload
+
 docker compose ps
 
 echo "Deployed cardgame-server $VERSION"
