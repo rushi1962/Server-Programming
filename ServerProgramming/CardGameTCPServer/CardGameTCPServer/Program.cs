@@ -219,8 +219,12 @@ class Program
     {
         int gameActionTypeValue = await PacketReader.ReadInt32Async(client.Stream);
         GameActionTypes gameActionType = (GameActionTypes)gameActionTypeValue;
-        Game game = client.CurrentMatch.GetGame();
+
+        // The match may already be finished and cleaned up (e.g. a click right after game over)
         Match clientCurrentMatch = client.CurrentMatch;
+        if (clientCurrentMatch == null) return;
+
+        Game game = client.CurrentMatch.GetGame();
 
         switch (gameActionType)
         {
@@ -334,6 +338,7 @@ class Program
         newMatch.BroadcastGameUpdate += BroadcastGamePacket;
         newMatch.MatchCleanup += CleanupMatch;
         newMatch.DeclareGame += DeclareGame;
+        newMatch.MatchFinished += SaveMatchResult;
 
         lock (matchListLock)
         {
@@ -410,6 +415,33 @@ class Program
         match.DeclareGame -= DeclareGame;
     }
 
+    static void SaveMatchResult(Match match)
+    {
+        GameState state = match.GetGame().GetGameState();
+
+        #region Save data to database
+
+        MatchResultService.Instance.SaveMatchResult(match.MatchId, state);
+
+        if (state.GameWinnerID == state.PlayerState_1.PlayerID)
+        {
+            PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_1.PlayerID);
+            PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_2.PlayerID);
+        }
+        else if (state.GameWinnerID == state.PlayerState_2.PlayerID)
+        {
+            PlayerStatsService.Instance.SavePlayerWin(state.PlayerState_2.PlayerID);
+            PlayerStatsService.Instance.SavePlayerLose(state.PlayerState_1.PlayerID);
+        }
+        else
+        {
+            PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_1.PlayerID);
+            PlayerStatsService.Instance.SavePlayerTie(state.PlayerState_2.PlayerID);
+        }
+
+        #endregion
+    }
+
     static void CleanupMatch(Match match)
     {
         foreach (ClientConnection client in match.Clients)
@@ -430,6 +462,7 @@ class Program
 
         match.BroadcastGameUpdate -= BroadcastGamePacket;
         match.MatchCleanup -= CleanupMatch;
+        match.MatchFinished -= SaveMatchResult;
     }
 
     static async Task ServerConsoleLoop()
@@ -520,6 +553,7 @@ class Program
             {
                 match.GetGame().DrawGame();
                 BroadcastGamePacket(GamePacketTypes.GameStateUpdatePacket, match);
+                match.Finish();
             }
 
             matchList.Clear();

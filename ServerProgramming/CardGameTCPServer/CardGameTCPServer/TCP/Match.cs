@@ -21,6 +21,10 @@ namespace CardGameTCPServer.TCP
         public Action<GamePacketTypes, Match, ClientConnection> BroadcastGameUpdate;
         public Action<Match> MatchCleanup;
         public Action<Match, ClientConnection> DeclareGame;
+        public Action<Match> MatchFinished;
+
+        // Finish() can be called from a worker thread and from shutdown
+        private readonly object finishLock = new object();
 
         public MatchState State { get; private set; }
 
@@ -73,10 +77,16 @@ namespace CardGameTCPServer.TCP
 
         public void Finish()
         {
-            if (State == MatchState.Finished)
-                return;
+            lock (finishLock)
+            {
+                if (State == MatchState.Finished)
+                    return;
 
-            State = MatchState.Finished;            
+                State = MatchState.Finished;
+            }
+
+            // Only the first caller reaches this line, so the result is saved exactly once
+            MatchFinished?.Invoke(this);
         }
 
         public void Update()
@@ -108,10 +118,16 @@ namespace CardGameTCPServer.TCP
                 stateChanged = true;
             }
 
-            if(stateChanged)
+            if (stateChanged)
             {
                 BroadcastGameUpdate?.Invoke(GamePacketTypes.GameStateUpdatePacket, this, null);
                 stateChanged = false;
+
+                // The last command may have ended the game (a killing attack, or a player leaving)
+                if (game.GetIsGameOver())
+                {
+                    Finish();
+                }
             }
         }
 
